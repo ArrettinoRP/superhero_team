@@ -1,10 +1,10 @@
 import React from 'react';
-import {Home} from './Home';
+import {HomeScreen} from './HomeScreen';
 
 export const HopmeContainer: React.FC = () => {
   return (
     <>
-      <Home />
+      <HomeScreen />
     </>
   );
 };
