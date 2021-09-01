@@ -1,6 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View} from 'react-native';
+import {SuperHeroesCardView} from '../../components/SuperHeroesCardView/SuperHeroesCardView';
 import {Hero} from '../../types';
+import {homeScreenStyles} from './homeScreenStyles';
 
 interface HomeScreenPropsTypes {
   superHeroesList: Hero[];
@@ -11,7 +13,9 @@ export const HomeScreen: React.FC<HomeScreenPropsTypes> = ({
 }) => {
   return (
     <>
-      <Text>Home</Text>
+      <View style={homeScreenStyles.superHeroesCardViewContainer}>
+        <SuperHeroesCardView superHeroesList={superHeroesList} />
+      </View>
     </>
   );
 };
