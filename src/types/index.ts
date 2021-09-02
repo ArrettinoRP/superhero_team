@@ -1,4 +1,4 @@
-import {
+export type {
   Appearance,
   Biography,
   Connections,
@@ -8,12 +8,4 @@ import {
   Hero,
 } from './Hero';
 
-export type {
-  Appearance,
-  Biography,
-  Connections,
-  Images,
-  Powerstats,
-  Work,
-  Hero,
-};
+export type {Store, SuperHeroesStore} from './store';

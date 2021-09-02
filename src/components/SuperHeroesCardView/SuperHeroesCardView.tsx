@@ -1,19 +1,18 @@
 import React from 'react';
-import {FlatList, Dimensions} from 'react-native';
+import {FlatList} from 'react-native';
 import {Hero} from '../../types';
 import {SuperHeroCard} from '../SuperHeroCard/SuperHeroCard';
-import {superHeroCardImageWidth} from '../SuperHeroCard/superHeroCardStyles';
 import {SearchBar} from '../SearchBar/SearchBar';
 
 interface superHeroesCardViewPropsTypes {
   superHeroesList: Hero[];
+  numColumns: number;
 }
-const windowWidth = Dimensions.get('window').width;
 
 export const SuperHeroesCardView: React.FC<superHeroesCardViewPropsTypes> = ({
   superHeroesList,
+  numColumns,
 }) => {
-  const numColumns = Math.trunc(windowWidth / superHeroCardImageWidth);
   return (
     <FlatList
       ListHeaderComponent={SearchBar}
