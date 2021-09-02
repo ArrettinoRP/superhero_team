@@ -1,3 +1,1 @@
-import {HopmeContainer} from './HomeContainer';
-
-export {HopmeContainer};
+export {HopmeContainer} from './HomeContainer';
