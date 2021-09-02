@@ -18,7 +18,7 @@ export const SuperHeroCard: React.FC<SuperHeroCardPropsTypes> = ({
         }}
         style={superHeroCardStyles.image}
       />
-      <Text style={superHeroCardStyles.name}>{`${superHeroData.name}`}</Text>
+      <Text style={superHeroCardStyles.name}>{superHeroData.name}</Text>
     </View>
   );
 };
