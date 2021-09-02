@@ -8,7 +8,7 @@ import {Text} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {ADD_SUPERHEROES_LIST} from '../../redux/actions/superHeroesActionsTypes';
 
-export const HopmeContainer: React.FC = () => {
+export const HomeContainer: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const dispatch = useDispatch();

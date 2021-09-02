@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HopmeContainer} from '../screens/Home';
+import {HomeContainer} from '../screens/Home';
 
 export type StackParamListTypes = {
   Home: undefined;
@@ -16,7 +16,7 @@ export const Navigation: React.FC = () => {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={HopmeContainer} />
+        <Stack.Screen name="Home" component={HomeContainer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
