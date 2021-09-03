@@ -5,7 +5,5 @@ type HomeScreenStylesTypes = {
 };
 
 export const homeScreenStyles = StyleSheet.create<HomeScreenStylesTypes>({
-  superHeroesCardViewContainer: {
-    alignItems: 'center',
-  },
+  superHeroesCardViewContainer: {},
 });

@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {Dimensions} from 'react-native';
+import {
+  Dimensions,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Animated,
+} from 'react-native';
 import {SuperHeroesCardView} from './SuperHeroesCardView';
 import {superHeroCardImageWidth} from '../SuperHeroCard/superHeroCardStyles';
 import {Hero, Store} from '../../types';
@@ -12,6 +17,8 @@ export const SuperHeroesCardViewContainer = () => {
     Hero[]
   >([]);
   const [searchBarValue, setSearchBarValue] = useState<string>('');
+  const scrollY = new Animated.Value(0);
+  const SearchBarHeight = 90;
 
   const superHeroesList: Hero[] = useSelector(
     (state: Store) => state.superHeroes.list,
@@ -19,6 +26,10 @@ export const SuperHeroesCardViewContainer = () => {
 
   const onChangeSearchBar = (text: string) => {
     setSearchBarValue(text);
+  };
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    scrollY.setValue(e.nativeEvent.contentOffset.y);
   };
 
   useEffect(() => {
@@ -49,6 +60,9 @@ export const SuperHeroesCardViewContainer = () => {
       numColumns={numColumns}
       searchBarValue={searchBarValue}
       onChangeSearchBar={onChangeSearchBar}
+      scrollY={scrollY}
+      onScroll={onScroll}
+      SearchBarHeight={SearchBarHeight}
     />
   );
 };
