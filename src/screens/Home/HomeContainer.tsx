@@ -1,10 +1,11 @@
 import React from 'react';
 import {HomeScreen} from './HomeScreen';
+import {ErrorScreen} from '../Error';
+import {LoadingScreen} from '../Loading';
 import {superHeroApi} from '../../api';
 import {useEffect} from 'react';
 import {useState} from 'react';
 import {Hero} from '../../types';
-import {Text} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {ADD_SUPERHEROES_LIST} from '../../redux/actions/superHeroesActionsTypes';
 
@@ -30,11 +31,11 @@ export const HomeContainer: React.FC = () => {
   }, []);
 
   if (error) {
-    return <Text>Error</Text>;
+    return <ErrorScreen />;
   }
 
   if (isLoading) {
-    return <Text>Is Loading</Text>;
+    return <LoadingScreen />;
   }
 
   return <HomeScreen />;
