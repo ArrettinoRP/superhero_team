@@ -1,15 +1,19 @@
 import React from 'react';
 import {Button} from 'react-native';
 
-interface LinkButtonPropsTypes {
+interface NavigateButtonPropsTypes {
   onPress: () => void;
+  title: string;
 }
 
-export const LinkButton: React.FC<LinkButtonPropsTypes> = ({onPress}) => {
+export const NavigateButton: React.FC<NavigateButtonPropsTypes> = ({
+  title,
+  onPress,
+}) => {
   return (
     <Button
       onPress={onPress}
-      title="Start"
+      title={title}
       color="#26619C"
       accessibilityLabel="Learn more about this purple button"
     />

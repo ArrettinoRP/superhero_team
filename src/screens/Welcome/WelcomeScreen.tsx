@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, ImageBackground} from 'react-native';
+import {NavigateButtonContainer} from '../../components';
 import {welcomeStyles} from './welcomeStyles';
 import superHeroTeamImage from '../../assets/images/superHeroTeam.jpg';
-import {LinkButtonContainer} from '../../components/LinkButton/LinkButtonContainer';
 
 export const WelcomeScreen: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const WelcomeScreen: React.FC = () => {
         source={superHeroTeamImage}
         resizeMode="cover"
         style={welcomeStyles.image}>
-        <LinkButtonContainer />
+        <NavigateButtonContainer title={'Start'} />
       </ImageBackground>
     </View>
   );
