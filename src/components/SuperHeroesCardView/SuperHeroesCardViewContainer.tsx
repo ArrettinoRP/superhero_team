@@ -6,7 +6,10 @@ import {
   Animated,
 } from 'react-native';
 import {SuperHeroesCardView} from './SuperHeroesCardView';
-import {superHeroCardImageWidth} from '../SuperHeroCard/superHeroCardStyles';
+import {
+  superHeroCardImageWidth,
+  superHeroCardImageMargin,
+} from '../SuperHeroCard/superHeroCardStyles';
 import {useSuperHeroesListFiltered} from './hooks/useSuperHeroesListFiltered';
 
 const windowWidth = Dimensions.get('window').width;
@@ -27,7 +30,9 @@ export const SuperHeroesCardViewContainer = () => {
     scrollY.setValue(e.nativeEvent.contentOffset.y);
   };
 
-  const numColumns = Math.trunc(windowWidth / superHeroCardImageWidth);
+  const numColumns = Math.trunc(
+    windowWidth / (superHeroCardImageWidth + superHeroCardImageMargin * 2),
+  );
   return (
     <SuperHeroesCardView
       superHeroesList={superHeroesListFiltered}

@@ -6,11 +6,12 @@ type SuperHeroCardStylesTypes = {
   name: TextStyle;
 };
 export const superHeroCardImageWidth = 160;
+export const superHeroCardImageMargin = 5;
 
 export const superHeroCardStyles = StyleSheet.create<SuperHeroCardStylesTypes>({
   cardContainer: {
     backgroundColor: 'grey',
-    margin: 5,
+    margin: superHeroCardImageMargin,
     alignItems: 'center',
   },
   image: {
