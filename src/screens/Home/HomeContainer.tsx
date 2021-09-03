@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {HomeScreen} from './HomeScreen';
 import {ErrorScreen} from '../Error';
 import {LoadingScreen} from '../Loading';
-import {useEffect} from 'react';
-import {useState} from 'react';
 import {useSuperHeroApi} from '../../hooks/api/useSuperHeroApi';
 
 export const HomeContainer: React.FC = () => {
