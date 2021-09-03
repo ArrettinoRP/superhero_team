@@ -1,10 +1,10 @@
 import React from 'react';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {LinkButton} from './LinkButton';
-import {StackParamListTypes} from '../../navigation/Navigation';
+import {StackScreensListTypes} from '../../navigation/Navigation';
 
 interface LinkButtonContainerPropsTypes {}
-type mainScreenProp = NavigationProp<StackParamListTypes>;
+type mainScreenProp = NavigationProp<StackScreensListTypes>;
 
 export const LinkButtonContainer: React.FC<LinkButtonContainerPropsTypes> =
   () => {

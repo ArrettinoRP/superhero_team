@@ -4,12 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeContainer} from '../screens/Home';
 import {WelcomeContainer} from '../screens/Welcome';
 
-export type StackParamListTypes = {
+export type StackScreensListTypes = {
   Home: undefined;
   Welcome: undefined;
 };
 
-const Stack = createNativeStackNavigator<StackParamListTypes>();
+const Stack = createNativeStackNavigator<StackScreensListTypes>();
 
 export const Navigation: React.FC = () => {
   return (
