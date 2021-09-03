@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ImageBackground} from 'react-native';
 import {NavigateButtonContainer} from '../../components';
 import {welcomeStyles} from './welcomeStyles';
-import superHeroTeamImage from '../../assets/images/superHeroTeam.jpg';
+import superHeroTeamImage from '../../assets/images/superHeroTeamWithLogo.jpg';
 
 export const WelcomeScreen: React.FC = () => {
   return (

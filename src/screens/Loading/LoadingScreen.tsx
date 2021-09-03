@@ -1,6 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {ImageBackground} from 'react-native';
+import superHeroTeamImage from '../../assets/images/superHeroTeam.jpg';
 
-export const LoadingScreen = () => {
-  return <Text>Is loading</Text>;
+export const LoadingScreen: React.FC = () => {
+  return (
+    <ImageBackground
+      source={superHeroTeamImage}
+      resizeMode="cover"
+      style={{flex: 1}}
+    />
+  );
 };
