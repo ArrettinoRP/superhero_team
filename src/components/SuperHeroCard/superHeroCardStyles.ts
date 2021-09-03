@@ -23,5 +23,7 @@ export const superHeroCardStyles = StyleSheet.create<SuperHeroCardStylesTypes>({
     fontSize: 15,
     fontFamily: 'Roboto',
     marginBottom: 5,
+    alignSelf: 'center',
+    maxWidth: superHeroCardImageWidth,
   },
 });
