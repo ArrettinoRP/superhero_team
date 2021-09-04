@@ -1,2 +1,2 @@
-export {SuperHeroesCardViewContainer} from './SuperHeroesCardView/SuperHeroesCardViewContainer';
+export {SuperHeroesListContainer} from './SuperHeroesList/SuperHeroesListContainer';
 export {NavigateButtonContainer} from './NavigateButton/NavigateButtonContainer';

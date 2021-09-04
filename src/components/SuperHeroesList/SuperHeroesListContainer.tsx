@@ -5,16 +5,16 @@ import {
   NativeSyntheticEvent,
   Animated,
 } from 'react-native';
-import {SuperHeroesCardView} from './SuperHeroesCardView';
+import {SuperHeroesList} from './SuperHeroesList';
 import {
-  superHeroCardImageWidth,
-  superHeroCardImageMargin,
-} from '../SuperHeroCard/superHeroCardStyles';
+  superHeroListCardWidth,
+  superHeroListCardMargin,
+} from '../SuperHeroesListCard/superHeroListCardStyles';
 import {useSuperHeroesListFiltered} from './hooks/useSuperHeroesListFiltered';
 
 const windowWidth = Dimensions.get('window').width;
 
-export const SuperHeroesCardViewContainer = () => {
+export const SuperHeroesListContainer = () => {
   const [searchBarValue, setSearchBarValue] = useState<string>('');
   const scrollY = new Animated.Value(0);
   const SearchBarHeight = 90;
@@ -31,10 +31,10 @@ export const SuperHeroesCardViewContainer = () => {
   };
 
   const numColumns = Math.trunc(
-    windowWidth / (superHeroCardImageWidth + superHeroCardImageMargin * 2),
+    windowWidth / (superHeroListCardWidth + superHeroListCardMargin * 2),
   );
   return (
-    <SuperHeroesCardView
+    <SuperHeroesList
       superHeroesList={superHeroesListFiltered}
       numColumns={numColumns}
       searchBarValue={searchBarValue}

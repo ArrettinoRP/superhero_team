@@ -1,13 +1,13 @@
 import {StyleSheet, ViewStyle} from 'react-native';
 
-type SuperHeroesCardStylesTypes = {
+type SuperHeroesListStylesTypes = {
   headerContainer: ViewStyle;
   searchContainer: ViewStyle;
   list: ViewStyle;
 };
 
-export const superHeroesCardStyles =
-  StyleSheet.create<SuperHeroesCardStylesTypes>({
+export const superHeroesListStyles =
+  StyleSheet.create<SuperHeroesListStylesTypes>({
     headerContainer: {
       height: 90,
       justifyContent: 'center',

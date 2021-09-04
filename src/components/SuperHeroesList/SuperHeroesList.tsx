@@ -6,12 +6,13 @@ import {
   NativeSyntheticEvent,
 } from 'react-native';
 import {Hero} from '../../types';
-import {SuperHeroCard} from '../SuperHeroCard/SuperHeroCard';
+//rimport {SuperHeroCard} from '../SuperHeroCard/SuperHeroCard';
+import {SuperHeroListCard} from '../SuperHeroesListCard/SuperHeroListCard';
 import {TextInputBar} from '../TextInputBar/TextInputBar';
 import {HideOnScroll} from '../Animations';
-import {superHeroesCardStyles} from './superHeroesCardStyles';
+import {superHeroesListStyles} from './superHeroesListStyles';
 
-interface superHeroesCardViewPropsTypes {
+interface superHeroesListPropsTypes {
   superHeroesList: Hero[];
   numColumns: number;
   searchBarValue: string;
@@ -21,7 +22,7 @@ interface superHeroesCardViewPropsTypes {
   onChangeSearchBar: (text: string) => void;
 }
 
-export const SuperHeroesCardView: React.FC<superHeroesCardViewPropsTypes> = ({
+export const SuperHeroesList: React.FC<superHeroesListPropsTypes> = ({
   superHeroesList,
   numColumns,
   searchBarValue,
@@ -33,8 +34,8 @@ export const SuperHeroesCardView: React.FC<superHeroesCardViewPropsTypes> = ({
   return (
     <View>
       <HideOnScroll scrollY={scrollY} height={SearchBarHeight}>
-        <View style={superHeroesCardStyles.headerContainer}>
-          <View style={superHeroesCardStyles.searchContainer}>
+        <View style={superHeroesListStyles.headerContainer}>
+          <View style={superHeroesListStyles.searchContainer}>
             <TextInputBar
               value={searchBarValue}
               onChangeText={onChangeSearchBar}
@@ -47,11 +48,13 @@ export const SuperHeroesCardView: React.FC<superHeroesCardViewPropsTypes> = ({
         data={superHeroesList}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => '_' + item.id}
-        renderItem={({item}) => <SuperHeroCard superHeroData={item} />}
+        renderItem={({item}) => (
+          <SuperHeroListCard name={item.name} image={item.images.sm} />
+        )}
         numColumns={numColumns}
         showsHorizontalScrollIndicator={false}
         onScroll={onScroll}
-        style={superHeroesCardStyles.list}
+        style={superHeroesListStyles.list}
       />
     </View>
   );
