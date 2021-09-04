@@ -20,5 +20,7 @@ export const superHeroesListStyles =
     },
     list: {
       alignSelf: 'center',
+      minWidth: '90%',
+      maxWidth: '95%',
     },
   });

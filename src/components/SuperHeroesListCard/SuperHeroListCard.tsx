@@ -14,11 +14,15 @@ export const SuperHeroListCard: React.FC<SuperHeroListCard> = ({
 }) => {
   return (
     <View style={superHeroListCardStyles.container}>
-      <Image source={{uri: image}} style={superHeroListCardStyles.image} />
+      <View style={superHeroListCardStyles.imageContainer}>
+        <Image source={{uri: image}} style={superHeroListCardStyles.image} />
+      </View>
       <View style={superHeroListCardStyles.informationContainer}>
         <Text style={superHeroListCardStyles.name}>{name}</Text>
       </View>
-      <AddButton />
+      <View style={superHeroListCardStyles.actionButtonContainer}>
+        <AddButton />
+      </View>
     </View>
   );
 };
