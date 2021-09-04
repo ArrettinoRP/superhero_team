@@ -49,7 +49,11 @@ export const SuperHeroesList: React.FC<superHeroesListPropsTypes> = ({
         showsVerticalScrollIndicator={false}
         keyExtractor={item => '_' + item.id}
         renderItem={({item}) => (
-          <SuperHeroListCard name={item.name} image={item.images.sm} />
+          <SuperHeroListCard
+            name={item.name}
+            image={item.images.sm}
+            alignment={item.biography.alignment}
+          />
         )}
         numColumns={numColumns}
         showsHorizontalScrollIndicator={false}
