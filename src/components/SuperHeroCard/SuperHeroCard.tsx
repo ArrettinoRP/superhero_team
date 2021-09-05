@@ -1,24 +1,25 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import {Hero} from '../../types';
 import {superHeroCardStyles} from './superHeroCardStyles';
 
 interface SuperHeroCardPropsTypes {
-  superHeroData: Hero;
+  image: string;
+  name: string;
 }
 
 export const SuperHeroCard: React.FC<SuperHeroCardPropsTypes> = ({
-  superHeroData,
+  image,
+  name,
 }) => {
   return (
     <View style={superHeroCardStyles.cardContainer}>
       <Image
         source={{
-          uri: superHeroData.images.sm,
+          uri: image,
         }}
         style={superHeroCardStyles.image}
       />
-      <Text style={superHeroCardStyles.name}>{superHeroData.name}</Text>
+      <Text style={superHeroCardStyles.name}>{name}</Text>
     </View>
   );
 };

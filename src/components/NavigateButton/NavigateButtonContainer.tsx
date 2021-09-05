@@ -1,9 +1,7 @@
 import React from 'react';
-import {useNavigation, NavigationProp} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {NavigateButton} from './NavigateButton';
-import {StackScreensListTypes} from '../../navigation/Navigation';
-
-type mainScreenProp = NavigationProp<StackScreensListTypes>;
+import {MainScreenProp, StackScreensListTypes} from '../../navigation';
 
 interface NavigateButtonContainerPropsTypes {
   title: string;
@@ -12,7 +10,7 @@ interface NavigateButtonContainerPropsTypes {
 
 export const NavigateButtonContainer: React.FC<NavigateButtonContainerPropsTypes> =
   ({title, navigateTo}) => {
-    const navigation = useNavigation<mainScreenProp>();
+    const navigation = useNavigation<MainScreenProp>();
     const onPress = () => navigation.navigate(navigateTo);
     return <NavigateButton title={title} onPress={onPress} />;
   };

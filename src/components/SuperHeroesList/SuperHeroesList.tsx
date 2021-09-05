@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {Hero} from '../../types';
 //rimport {SuperHeroCard} from '../SuperHeroCard/SuperHeroCard';
-import {SuperHeroListCard} from '../SuperHeroesListCard/SuperHeroListCard';
+import {SuperHeroListCardContainer} from '../SuperHeroesListCard/SuperHeroListCardContainer';
 import {TextInputBar} from '../TextInputBar/TextInputBar';
 import {HideOnScroll} from '../Animations';
 import {superHeroesListStyles} from './superHeroesListStyles';
@@ -49,10 +49,11 @@ export const SuperHeroesList: React.FC<superHeroesListPropsTypes> = ({
         showsVerticalScrollIndicator={false}
         keyExtractor={item => '_' + item.id}
         renderItem={({item}) => (
-          <SuperHeroListCard
+          <SuperHeroListCardContainer
             name={item.name}
             image={item.images.sm}
             alignment={item.biography.alignment}
+            id={item.id}
           />
         )}
         numColumns={numColumns}
