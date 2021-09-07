@@ -1,9 +1,16 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {SuperHeroCard} from '../../components/SuperHeroCard/SuperHeroCard';
 import {Work, Powerstats, Connections, Biography} from '../../types/Hero';
+import {
+  AppearanceCard,
+  BasicInformationCard,
+  BiographyCard,
+  PowerstatsCard,
+} from '../../components/SuperHero';
+import {AddButton} from '../../components/AddButton/AddButton';
 
-interface SuperHeroAppearance {
+export interface SuperHeroAppearance {
   height: string[];
   weight: string[];
   eyeColor: string;
@@ -13,7 +20,6 @@ interface SuperHeroAppearance {
 interface SuperHeroScreenPropsTypes {
   name: string;
   image: string;
-  aliases: string[];
   appearance: SuperHeroAppearance;
   race: string;
   gender: string;
@@ -26,7 +32,6 @@ interface SuperHeroScreenPropsTypes {
 export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
   name,
   image,
-  aliases,
   appearance,
   race,
   gender,
@@ -35,20 +40,22 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
   biography,
 }) => {
   return (
-    <View style={{flexDirection: 'row'}}>
-      <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
-        <SuperHeroCard name={name} image={image} />
-      </View>
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <Text
-          style={{
-            marginTop: 30,
-            fontSize: 17,
-            fontWeight: 'bold',
-          }}>
-          Aliases
-        </Text>
-        <Text>{aliases[0]}</Text>
+    <View>
+      <ScrollView>
+        <View key="1" style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
+            <SuperHeroCard name={name} image={image} />
+          </View>
+          <View style={{flex: 1}}>
+            <BasicInformationCard race={race} gender={gender} work={work} />
+            <BiographyCard biography={biography} />
+            <AppearanceCard appearance={appearance} />
+            <PowerstatsCard powerstats={powerstats} />
+          </View>
+        </View>
+      </ScrollView>
+      <View style={{position: 'absolute', bottom: '5%', right: '5%'}}>
+        <AddButton />
       </View>
     </View>
   );
