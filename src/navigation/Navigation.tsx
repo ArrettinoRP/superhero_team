@@ -4,10 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ListContainer} from '../screens/List';
 import {WelcomeContainer} from '../screens/Welcome';
 import {SuperHeroContainer} from '../screens/SuperHero';
+import {HomeContainer} from '../screens/Home';
 
 export type StackScreensListTypes = {
-  List: undefined;
   Welcome: undefined;
+  Home: undefined;
+  List: undefined;
   SuperHero: {id: number};
 };
 export type MainScreenProp = NavigationProp<StackScreensListTypes>;
@@ -22,6 +24,7 @@ export const Navigation: React.FC = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Welcome" component={WelcomeContainer} />
+        <Stack.Screen name="Home" component={HomeContainer} />
         <Stack.Screen name="List" component={ListContainer} />
         <Stack.Screen name="SuperHero" component={SuperHeroContainer} />
       </Stack.Navigator>

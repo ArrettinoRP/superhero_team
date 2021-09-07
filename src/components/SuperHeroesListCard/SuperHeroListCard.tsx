@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text, Pressable} from 'react-native';
 import {superHeroListCardStyles} from './superHeroListCardStyles';
-import {AddButton} from '../AddButton/AddButton';
+import {AddButtonContainer} from '../AddButton/AddButtonContainer';
 import {Tag} from '../Tag/Tag';
 
 interface SuperHeroListCardPropsContainer {
@@ -30,7 +30,7 @@ export const SuperHeroListCard: React.FC<SuperHeroListCardPropsContainer> = ({
           </View>
         </View>
         <View style={superHeroListCardStyles.actionButtonContainer}>
-          <AddButton />
+          <AddButtonContainer />
         </View>
       </View>
     </Pressable>

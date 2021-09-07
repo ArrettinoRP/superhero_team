@@ -8,7 +8,7 @@ import {
   BiographyCard,
   PowerstatsCard,
 } from '../../components/SuperHero';
-import {AddButton} from '../../components/AddButton/AddButton';
+import {AddButtonContainer} from '../../components/AddButton/AddButtonContainer';
 
 export interface SuperHeroAppearance {
   height: string[];
@@ -55,7 +55,7 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
         </View>
       </ScrollView>
       <View style={{position: 'absolute', bottom: '5%', right: '5%'}}>
-        <AddButton />
+        <AddButtonContainer />
       </View>
     </View>
   );
