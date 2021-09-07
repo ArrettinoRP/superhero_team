@@ -8,6 +8,7 @@ interface SuperHeroListCardPropsContainer {
   image: string;
   name: string;
   alignment: string;
+  id: Number;
   onPress: () => void;
 }
 
@@ -15,6 +16,7 @@ export const SuperHeroListCard: React.FC<SuperHeroListCardPropsContainer> = ({
   image,
   name,
   alignment,
+  id,
   onPress,
 }) => {
   return (
@@ -30,7 +32,7 @@ export const SuperHeroListCard: React.FC<SuperHeroListCardPropsContainer> = ({
           </View>
         </View>
         <View style={superHeroListCardStyles.actionButtonContainer}>
-          <AddButtonContainer />
+          <AddButtonContainer id={id} alignment={alignment} />
         </View>
       </View>
     </Pressable>

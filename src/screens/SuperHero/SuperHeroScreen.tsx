@@ -27,6 +27,7 @@ interface SuperHeroScreenPropsTypes {
   powerstats: Powerstats;
   connections: Connections;
   biography: Biography;
+  id: Number;
 }
 
 export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
@@ -38,6 +39,7 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
   work,
   powerstats,
   biography,
+  id,
 }) => {
   return (
     <View>
@@ -55,7 +57,7 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
         </View>
       </ScrollView>
       <View style={{position: 'absolute', bottom: '5%', right: '5%'}}>
-        <AddButtonContainer />
+        <AddButtonContainer id={id} alignment={biography.alignment} />
       </View>
     </View>
   );

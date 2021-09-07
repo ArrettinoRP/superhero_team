@@ -20,6 +20,7 @@ export const SuperHeroListCardContainer: React.FC<SuperHeroListCardContainerProp
         name={name}
         image={image}
         alignment={alignment}
+        id={id}
       />
     );
   };

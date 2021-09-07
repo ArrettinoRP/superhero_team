@@ -22,6 +22,7 @@ export const SuperHeroContainer: React.FC = () => {
   };
   return (
     <SuperHeroScreen
+      id={superHero.id}
       name={superHero.name}
       image={superHero.images.sm}
       appearance={appearance}
