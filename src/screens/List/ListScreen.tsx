@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
 import {SuperHeroesListContainer} from '../../components';
-import {homeScreenStyles} from './homeScreenStyles';
+import {listStyles} from './listScreenStyles';
 
-export const HomeScreen: React.FC = () => {
+export const ListScreen: React.FC = () => {
   return (
-    <View style={homeScreenStyles.superHeroesCardViewContainer}>
+    <View style={listStyles.superHeroesCardViewContainer}>
       <SuperHeroesListContainer />
     </View>
   );

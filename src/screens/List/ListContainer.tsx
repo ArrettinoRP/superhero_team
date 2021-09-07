@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {HomeScreen} from './HomeScreen';
+import {ListScreen} from './ListScreen';
 import {ErrorScreen} from '../Error';
 import {LoadingScreen} from '../Loading';
 import {useSuperHeroApi} from '../../hooks/api/useSuperHeroApi';
 
-export const HomeContainer: React.FC = () => {
+export const ListContainer: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timing, setTiming] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
@@ -37,5 +37,5 @@ export const HomeContainer: React.FC = () => {
     return <LoadingScreen />;
   }
 
-  return <HomeScreen />;
+  return <ListScreen />;
 };

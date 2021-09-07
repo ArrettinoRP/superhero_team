@@ -1,9 +1,9 @@
 import {StyleSheet, ViewStyle} from 'react-native';
 
-type HomeScreenStylesTypes = {
+type ListStylesTypes = {
   superHeroesCardViewContainer: ViewStyle;
 };
 
-export const homeScreenStyles = StyleSheet.create<HomeScreenStylesTypes>({
+export const listStyles = StyleSheet.create<ListStylesTypes>({
   superHeroesCardViewContainer: {},
 });

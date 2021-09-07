@@ -11,7 +11,7 @@ export const WelcomeScreen: React.FC = () => {
         source={superHeroTeamImage}
         resizeMode="cover"
         style={welcomeStyles.image}>
-        <NavigateButtonContainer title={'Start'} navigateTo={'Home'} />
+        <NavigateButtonContainer title={'Start'} navigateTo={'List'} />
       </ImageBackground>
     </View>
   );
