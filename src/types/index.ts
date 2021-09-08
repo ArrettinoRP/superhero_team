@@ -8,4 +8,4 @@ export type {
   Hero,
 } from './Hero';
 
-export type {Store, SuperHeroesStore} from './store';
+export type {Store, SuperHeroesStore, SuperHeroesTeamStore} from './store';

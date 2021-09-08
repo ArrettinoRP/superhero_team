@@ -3,36 +3,34 @@ import {View, Image, Text, Pressable} from 'react-native';
 import {superHeroListCardStyles} from './superHeroListCardStyles';
 import {AddButtonContainer} from '../AddButton/AddButtonContainer';
 import {Tag} from '../Tag/Tag';
+import {Hero} from '../../types';
 
 interface SuperHeroListCardPropsContainer {
-  image: string;
-  name: string;
-  alignment: string;
-  id: Number;
+  superHero: Hero;
   onPress: () => void;
 }
 
 export const SuperHeroListCard: React.FC<SuperHeroListCardPropsContainer> = ({
-  image,
-  name,
-  alignment,
-  id,
+  superHero,
   onPress,
 }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={superHeroListCardStyles.container}>
         <View style={superHeroListCardStyles.imageContainer}>
-          <Image source={{uri: image}} style={superHeroListCardStyles.image} />
+          <Image
+            source={{uri: superHero.images.md}}
+            style={superHeroListCardStyles.image}
+          />
         </View>
         <View style={superHeroListCardStyles.informationContainer}>
-          <Text style={superHeroListCardStyles.name}>{name}</Text>
+          <Text style={superHeroListCardStyles.name}>{superHero.name}</Text>
           <View style={{flexDirection: 'row', marginTop: 3}}>
-            <Tag text={alignment} />
+            <Tag text={superHero.biography.alignment} />
           </View>
         </View>
         <View style={superHeroListCardStyles.actionButtonContainer}>
-          <AddButtonContainer id={id} alignment={alignment} />
+          <AddButtonContainer superHero={superHero} />
         </View>
       </View>
     </Pressable>

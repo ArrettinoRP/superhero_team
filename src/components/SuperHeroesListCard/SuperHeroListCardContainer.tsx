@@ -2,25 +2,15 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SuperHeroListCard} from './SuperHeroListCard';
 import {MainScreenProp} from '../../navigation';
+import {Hero} from '../../types';
 
 interface SuperHeroListCardContainerPropsTypes {
-  image: string;
-  name: string;
-  alignment: string;
-  id: number;
+  superHero: Hero;
 }
 
 export const SuperHeroListCardContainer: React.FC<SuperHeroListCardContainerPropsTypes> =
-  ({image, name, alignment, id}) => {
+  ({superHero}) => {
     const navigation = useNavigation<MainScreenProp>();
-    const onPress = () => navigation.navigate('SuperHero', {id});
-    return (
-      <SuperHeroListCard
-        onPress={onPress}
-        name={name}
-        image={image}
-        alignment={alignment}
-        id={id}
-      />
-    );
+    const onPress = () => navigation.navigate('SuperHero', {id: superHero.id});
+    return <SuperHeroListCard onPress={onPress} superHero={superHero} />;
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 import {SuperHeroCard} from '../../components/SuperHeroCard/SuperHeroCard';
-import {Work, Powerstats, Connections, Biography} from '../../types/Hero';
+import {Hero} from '../../types';
 import {
   AppearanceCard,
   BasicInformationCard,
@@ -18,46 +18,35 @@ export interface SuperHeroAppearance {
 }
 
 interface SuperHeroScreenPropsTypes {
-  name: string;
-  image: string;
   appearance: SuperHeroAppearance;
-  race: string;
-  gender: string;
-  work: Work;
-  powerstats: Powerstats;
-  connections: Connections;
-  biography: Biography;
-  id: Number;
+  superHero: Hero;
 }
 
 export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
-  name,
-  image,
   appearance,
-  race,
-  gender,
-  work,
-  powerstats,
-  biography,
-  id,
+  superHero,
 }) => {
   return (
     <View>
       <ScrollView>
         <View key="1" style={{flexDirection: 'row'}}>
           <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
-            <SuperHeroCard name={name} image={image} />
+            <SuperHeroCard name={superHero.name} image={superHero.images.md} />
           </View>
           <View style={{flex: 1}}>
-            <BasicInformationCard race={race} gender={gender} work={work} />
-            <BiographyCard biography={biography} />
+            <BasicInformationCard
+              race={superHero.appearance.race}
+              gender={superHero.appearance.gender}
+              work={superHero.work}
+            />
+            <BiographyCard biography={superHero.biography} />
             <AppearanceCard appearance={appearance} />
-            <PowerstatsCard powerstats={powerstats} />
+            <PowerstatsCard powerstats={superHero.powerstats} />
           </View>
         </View>
       </ScrollView>
       <View style={{position: 'absolute', bottom: '5%', right: '5%'}}>
-        <AddButtonContainer id={id} alignment={biography.alignment} />
+        <AddButtonContainer superHero={superHero} />
       </View>
     </View>
   );

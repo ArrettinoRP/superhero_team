@@ -2,12 +2,12 @@ import {Hero} from './Hero';
 
 export interface Store {
   superHeroes: SuperHeroesStore;
-  superHeroesTeam: superHeroesTeamStore;
+  superHeroesTeam: SuperHeroesTeamStore;
 }
 
-export interface superHeroesTeamStore {
-  badTeam: Object;
-  goodTeam: Object;
+export interface SuperHeroesTeamStore {
+  badTeam: Hero[];
+  goodTeam: Hero[];
 }
 export interface SuperHeroesStore {
   list: Hero[];

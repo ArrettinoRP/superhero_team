@@ -48,13 +48,8 @@ export const SuperHeroesList: React.FC<superHeroesListPropsTypes> = ({
         data={superHeroesList}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => '_' + item.id}
-        renderItem={({item}) => (
-          <SuperHeroListCardContainer
-            name={item.name}
-            image={item.images.sm}
-            alignment={item.biography.alignment}
-            id={item.id}
-          />
+        renderItem={({item}: {item: Hero}) => (
+          <SuperHeroListCardContainer superHero={item} />
         )}
         numColumns={numColumns}
         showsHorizontalScrollIndicator={false}

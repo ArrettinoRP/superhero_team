@@ -20,18 +20,5 @@ export const SuperHeroContainer: React.FC = () => {
     eyeColor: superHero.appearance.eyeColor,
     hairColor: superHero.appearance.hairColor,
   };
-  return (
-    <SuperHeroScreen
-      id={superHero.id}
-      name={superHero.name}
-      image={superHero.images.sm}
-      appearance={appearance}
-      race={superHero.appearance.race}
-      gender={superHero.appearance.gender}
-      work={superHero.work}
-      powerstats={superHero.powerstats}
-      connections={superHero.connections}
-      biography={superHero.biography}
-    />
-  );
+  return <SuperHeroScreen appearance={appearance} superHero={superHero} />;
 };

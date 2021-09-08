@@ -7,23 +7,22 @@ import {
   ADD_SUPERHERO_GOOD_TEAM,
 } from '../../redux/actions/superHeroesTeamActionsTypes';
 import {MainScreenProp} from '../../navigation';
+import {Hero} from '../../types';
 
 interface AddButtonContainerPropsTypes {
-  alignment: string;
-  id: Number;
+  superHero: Hero;
 }
 
 export const AddButtonContainer: React.FC<AddButtonContainerPropsTypes> = ({
-  alignment,
-  id,
+  superHero,
 }) => {
   const navigation = useNavigation<MainScreenProp>();
   const dispatch = useDispatch();
   const onPress = () => {
-    if (alignment === 'bad') {
-      dispatch({type: ADD_SUPERHERO_BAD_TEAM, payload: id});
+    if (superHero.biography.alignment === 'bad') {
+      dispatch({type: ADD_SUPERHERO_BAD_TEAM, payload: superHero});
     } else {
-      dispatch({type: ADD_SUPERHERO_GOOD_TEAM, payload: id});
+      dispatch({type: ADD_SUPERHERO_GOOD_TEAM, payload: superHero});
     }
     navigation.navigate('Home');
   };
