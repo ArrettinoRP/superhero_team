@@ -12,11 +12,21 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
 }) => {
   return (
     <View>
-      {superHeroesTeams.goodTeam.map(item => (
-        <SuperHeroesTeamCard name={item.name} imageUrl={item.images.md} />
+      {superHeroesTeams.goodTeam.map((item, index) => (
+        <SuperHeroesTeamCard
+          name={item.name}
+          index={index}
+          alignment={item.biography.alignment}
+          imageUrl={item.images.md}
+        />
       ))}
-      {superHeroesTeams.badTeam.map(item => (
-        <SuperHeroesTeamCard name={item.name} imageUrl={item.images.md} />
+      {superHeroesTeams.badTeam.map((item, index) => (
+        <SuperHeroesTeamCard
+          name={item.name}
+          index={index}
+          alignment={item.biography.alignment}
+          imageUrl={item.images.md}
+        />
       ))}
     </View>
   );
