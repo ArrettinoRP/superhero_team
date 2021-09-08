@@ -4,7 +4,6 @@ import {Store} from '../../types';
 import {HomeScreen} from './HomeScreen';
 
 export const HomeContainer: React.FC = () => {
-  const st = useSelector((store: Store) => store.superHeroesTeam.goodTeam);
-  console.log(st);
-  return <HomeScreen />;
+  const superHeroesTeams = useSelector((store: Store) => store.superHeroesTeam);
+  return <HomeScreen superHeroesTeams={superHeroesTeams} />;
 };
