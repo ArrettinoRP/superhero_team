@@ -1,20 +1,21 @@
 import React from 'react';
-import {NavigationContainer, NavigationProp} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  NavigationProp,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ListContainer} from '../screens/List';
 import {WelcomeContainer} from '../screens/Welcome';
-import {SuperHeroContainer} from '../screens/SuperHero';
-import {HomeContainer} from '../screens/Home';
+import {NavigationLoggedIn} from './NavigationLoggedIn';
+import {LoggedInScreensParamsTypes} from './NavigationLoggedIn';
 
-export type StackScreensListTypes = {
+export type MainScreensParamsTypes = {
   Welcome: undefined;
-  Home: undefined;
-  List: undefined;
-  SuperHero: {id: number};
+  LoggedIn: NavigatorScreenParams<LoggedInScreensParamsTypes>;
 };
-export type MainScreenProp = NavigationProp<StackScreensListTypes>;
+export type MainScreensProps = NavigationProp<MainScreensParamsTypes>;
 
-const Stack = createNativeStackNavigator<StackScreensListTypes>();
+const Stack = createNativeStackNavigator<MainScreensParamsTypes>();
 
 export const Navigation: React.FC = () => {
   return (
@@ -24,9 +25,7 @@ export const Navigation: React.FC = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Welcome" component={WelcomeContainer} />
-        <Stack.Screen name="Home" component={HomeContainer} />
-        <Stack.Screen name="List" component={ListContainer} />
-        <Stack.Screen name="SuperHero" component={SuperHeroContainer} />
+        <Stack.Screen name="LoggedIn" component={NavigationLoggedIn} />
       </Stack.Navigator>
     </NavigationContainer>
   );

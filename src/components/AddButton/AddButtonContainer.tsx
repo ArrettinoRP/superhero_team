@@ -6,7 +6,7 @@ import {
   ADD_SUPERHERO_BAD_TEAM,
   ADD_SUPERHERO_GOOD_TEAM,
 } from '../../redux/actions/superHeroesTeamActionsTypes';
-import {MainScreenProp} from '../../navigation';
+import {LoggedInScreensProps} from '../../navigation';
 import {Hero, Store} from '../../types';
 import {View} from 'react-native';
 
@@ -17,7 +17,7 @@ interface AddButtonContainerPropsTypes {
 export const AddButtonContainer: React.FC<AddButtonContainerPropsTypes> = ({
   superHero,
 }) => {
-  const navigation = useNavigation<MainScreenProp>();
+  const navigation = useNavigation<LoggedInScreensProps>();
   const teamFull = useSelector(
     (state: Store) => state.superHeroesTeam.teamFull,
   );
@@ -28,7 +28,7 @@ export const AddButtonContainer: React.FC<AddButtonContainerPropsTypes> = ({
     } else {
       dispatch({type: ADD_SUPERHERO_GOOD_TEAM, payload: superHero});
     }
-    navigation.navigate('Home');
+    navigation.navigate('Menu', {screen: 'Home'});
   };
   if (
     (teamFull.goodTeam === false && superHero.biography.alignment === 'good') ||
