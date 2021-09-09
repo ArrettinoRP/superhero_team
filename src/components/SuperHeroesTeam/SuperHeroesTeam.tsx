@@ -18,7 +18,6 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
   goodTeamPowerstats,
   badTeamPowerstats,
 }) => {
-  console.log(badTeamPowerstats);
   return (
     <View>
       <View style={{flexDirection: 'row'}}>
