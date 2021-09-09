@@ -1,8 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
-import {SuperHeroesTeamCard} from './SuperHeroesTeamCard/SuperHeroesTeamCard';
-import {AddSuperHeroesTeamCard} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCard';
 import {Hero} from '../../types';
+import {SuperHeroesTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroesTeamCardContainer';
+import {AddSuperHeroesTeamCardContainer} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCardContainer';
 
 interface SuperHeroesTeamPropsType {
   badTeamArray: Array<Hero | null>;
@@ -17,27 +17,29 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
     <View>
       {goodTeamArray.map((item, index) => {
         if (!item) {
-          return <AddSuperHeroesTeamCard />;
+          return <AddSuperHeroesTeamCardContainer />;
         }
         return (
-          <SuperHeroesTeamCard
+          <SuperHeroesTeamCardContainer
             name={item.name}
             index={index}
             alignment={item.biography.alignment}
             imageUrl={item.images.md}
+            id={item.id}
           />
         );
       })}
       {badTeamArray.map((item, index) => {
         if (!item) {
-          return <AddSuperHeroesTeamCard />;
+          return <AddSuperHeroesTeamCardContainer />;
         }
         return (
-          <SuperHeroesTeamCard
+          <SuperHeroesTeamCardContainer
             name={item.name}
             index={index}
             alignment={item.biography.alignment}
             imageUrl={item.images.md}
+            id={item.id}
           />
         );
       })}
