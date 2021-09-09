@@ -3,6 +3,7 @@ import {Hero} from './Hero';
 export interface Store {
   superHeroes: SuperHeroesStore;
   superHeroesTeam: SuperHeroesTeamStore;
+  auth: authStore;
 }
 
 export interface SuperHeroesTeamStore {
@@ -17,4 +18,8 @@ export interface TeamFull {
 }
 export interface SuperHeroesStore {
   list: Hero[];
+}
+
+export interface authStore {
+  loggedIn: boolean;
 }

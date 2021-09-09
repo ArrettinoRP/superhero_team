@@ -1,14 +1,10 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {WelcomeScreen} from './WelcomeScreen';
-import {MainScreensProps} from '../../navigation';
+import {LoggedOutScreensProps} from '../../navigation';
 
 export const WelcomeContainer: React.FC = () => {
-  const navigation = useNavigation<MainScreensProps>();
-  const onPress = () =>
-    navigation.navigate('LoggedIn', {
-      screen: 'Menu',
-      params: {screen: 'Home'},
-    });
+  const navigation = useNavigation<LoggedOutScreensProps>();
+  const onPress = () => navigation.navigate('LogIn');
   return <WelcomeScreen onPress={onPress} />;
 };
