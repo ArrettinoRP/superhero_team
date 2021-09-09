@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "132658995187",
+    "project_id": "superhero-team-ad4d5",
+    "storage_bucket": "superhero-team-ad4d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132658995187:android:bfd58f278374ae04ccbc86",
+        "android_client_info": {
+          "package_name": "com.superhero_team"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132658995187-t4qa4t26qu5e7h5o0211g2a8t5njt3og.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfRioOAtat5MMD4_-K5Aun-N6BFWyc4PA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132658995187-t4qa4t26qu5e7h5o0211g2a8t5njt3og.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

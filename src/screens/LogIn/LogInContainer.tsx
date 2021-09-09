@@ -5,14 +5,22 @@ import {EDIT_LOGGED_IN} from '../../redux/actions/authActionsTypes';
 import {useNavigation} from '@react-navigation/core';
 import {LoggedOutScreensProps} from '../../navigation';
 import {LogInFormTypes} from './LogInScreen';
+import auth from '@react-native-firebase/auth';
 
 export const LogInContainer: React.FC = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation<LoggedOutScreensProps>();
 
   const onPressLogIn = (values: LogInFormTypes) => {
-    console.log(values);
-    dispatch({type: EDIT_LOGGED_IN, payload: true});
+    auth()
+      .signInWithEmailAndPassword(values.email, values.password)
+      .then(() => {
+        console.log('User account signed in!');
+        dispatch({type: EDIT_LOGGED_IN, payload: true});
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   const onPressSignUp = () => navigation.navigate('SignUp');
