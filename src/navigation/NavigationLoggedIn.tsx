@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ListContainer} from '../screens/List';
 import {SuperHeroContainer} from '../screens/SuperHero';
 import {HomeContainer} from '../screens/Home';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faHome, faList} from '@fortawesome/free-solid-svg-icons';
 
 export type LoggedInScreensParamsTypes = {
   Menu: NavigatorScreenParams<MenuParamsTypes>;
@@ -23,11 +25,14 @@ const Tab = createBottomTabNavigator<MenuParamsTypes>();
 
 export const NavigationLoggedIn: React.FC = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen name="Menu" component={Menu} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen name="SuperHero" component={SuperHeroContainer} />
     </Stack.Navigator>
   );
@@ -35,9 +40,28 @@ export const NavigationLoggedIn: React.FC = () => {
 
 const Menu: React.FC = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeContainer} />
-      <Tab.Screen name="List" component={ListContainer} />
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Tab.Screen
+        name="Home"
+        component={HomeContainer}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <FontAwesomeIcon size={size} color={color} icon={faHome} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="List"
+        component={ListContainer}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <FontAwesomeIcon size={size} color={color} icon={faList} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
