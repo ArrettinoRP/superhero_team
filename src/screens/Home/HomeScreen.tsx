@@ -14,7 +14,6 @@ export const HomeScreen: React.FC<HomeScreenPropsTypes> = ({
     <View>
       <ScrollView>
         <SuperHeroesTeamContainer superHeroesTeams={superHeroesTeams} />
-        <Text>Home</Text>
       </ScrollView>
     </View>
   );
