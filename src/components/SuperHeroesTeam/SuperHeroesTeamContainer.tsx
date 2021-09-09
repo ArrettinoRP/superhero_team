@@ -1,10 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {SuperHeroesTeam} from './SuperHeroesTeam';
-import {calculateTeamPowerstatsAverage} from './utils/calculateTeamPowerstatsAverage';
+import {
+  calculatePowerstatsAverage,
+  calculateBodyConstitutionAverage,
+} from './utils';
+import {removeUnits} from './utils';
 import {Hero, Powerstats, SuperHeroesTeamStore} from '../../types';
 
 interface SuperHeroesContainerPropsTypes {
   superHeroesTeams: SuperHeroesTeamStore;
+}
+
+export interface BodyConstitution {
+  weight: number;
+  height: number;
 }
 
 export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> =
@@ -28,6 +37,12 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       speed: 0,
       strength: 0,
     });
+
+    const [badTeamBodyConstitution, setBadTeamBodyConstitution] =
+      useState<BodyConstitution>({weight: 0, height: 0});
+    const [goodTeamBodyConstitution, setGoodTeamBodyConstitution] =
+      useState<BodyConstitution>({weight: 0, height: 0});
+
     const createGoodTeamArray = (goodTeam: Hero[]) => {
       let newGoodTeamArray: Array<Hero | null> = [];
       newGoodTeamArray.push.apply(newGoodTeamArray, goodTeam);
@@ -50,7 +65,7 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       for (let key in superHeroesTeams.badTeam) {
         badTeamPowerstatsArray.push(superHeroesTeams.badTeam[key].powerstats);
       }
-      const newBadTeamPowerstats = calculateTeamPowerstatsAverage(
+      const newBadTeamPowerstats = calculatePowerstatsAverage(
         badTeamPowerstatsArray,
       );
       setBadTeamPowerstats(newBadTeamPowerstats);
@@ -61,10 +76,48 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       for (let key in superHeroesTeams.goodTeam) {
         goodTeamPowerstatsArray.push(superHeroesTeams.goodTeam[key].powerstats);
       }
-      const newGoodTeamPowerstats = calculateTeamPowerstatsAverage(
+      const newGoodTeamPowerstats = calculatePowerstatsAverage(
         goodTeamPowerstatsArray,
       );
       setGoodTeamPowerstats(newGoodTeamPowerstats);
+    };
+
+    const calculateGoodTeamBodyConstitutionAverage = () => {
+      const goodTeamBodyConstitutionArray: BodyConstitution[] = [];
+      for (let key in superHeroesTeams.goodTeam) {
+        goodTeamBodyConstitutionArray.push({
+          weight: Number(
+            removeUnits(superHeroesTeams.goodTeam[key].appearance.weight[1]),
+          ),
+          height: Number(
+            removeUnits(superHeroesTeams.goodTeam[key].appearance.height[1]),
+          ),
+        });
+      }
+      const newGoodTeamBodyConstitution = calculateBodyConstitutionAverage(
+        goodTeamBodyConstitutionArray,
+      );
+
+      setGoodTeamBodyConstitution(newGoodTeamBodyConstitution);
+    };
+
+    const calculateBadTeamBodyConstitutionAverage = () => {
+      const badTeamBodyConstitutionArray: BodyConstitution[] = [];
+
+      for (let key in superHeroesTeams.badTeam) {
+        badTeamBodyConstitutionArray.push({
+          weight: Number(
+            removeUnits(superHeroesTeams.badTeam[key].appearance.weight[1]),
+          ),
+          height: Number(
+            removeUnits(superHeroesTeams.badTeam[key].appearance.height[1]),
+          ),
+        });
+      }
+      const newBadTeamBodyConstitution = calculateBodyConstitutionAverage(
+        badTeamBodyConstitutionArray,
+      );
+      setBadTeamBodyConstitution(newBadTeamBodyConstitution);
     };
 
     useEffect(() => {
@@ -72,6 +125,8 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       createBadTeamArray(superHeroesTeams.badTeam);
       calculateBadTeamPowerstatsAverage();
       calculateGoodTeamPowerstatsAverage();
+      calculateGoodTeamBodyConstitutionAverage();
+      calculateBadTeamBodyConstitutionAverage();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [superHeroesTeams]);
 
@@ -81,6 +136,8 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
         badTeamArray={badTeamArray}
         goodTeamPowerstats={goodTeamPowerstats}
         badTeamPowerstats={badTeamPowerstats}
+        badTeamBodyConstitution={badTeamBodyConstitution}
+        goodTeamBodyConstitution={goodTeamBodyConstitution}
       />
     );
   };

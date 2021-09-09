@@ -42,7 +42,7 @@ export const AppearanceCard: React.FC<AppearanceCardPropsCard> = ({
         }}>
         Height
       </Text>
-      <Text>{appearance.height.map(item => `${item}  `)}</Text>
+      <Text>{appearance.height[1]}</Text>
       <Text
         style={{
           fontSize: 15,
@@ -50,7 +50,7 @@ export const AppearanceCard: React.FC<AppearanceCardPropsCard> = ({
         }}>
         Weight
       </Text>
-      <Text>{appearance.weight.map(item => `${item}  `)}</Text>
+      <Text>{appearance.weight[1]}</Text>
     </View>
   );
 };

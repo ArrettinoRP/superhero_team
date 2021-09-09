@@ -4,12 +4,16 @@ import {Hero, Powerstats} from '../../types';
 import {SuperHeroesTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroesTeamCardContainer';
 import {AddSuperHeroesTeamCardContainer} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCardContainer';
 import {PowerstatsCard} from '../SuperHero';
+import {BodyConstitution} from './SuperHeroesTeamContainer';
+import {SuperHeroesTeamBodyConstitutionCard} from './SuperHeroesTeamBodyConstitutionCard/SuperHeroesTeamBodyConstitutionCard';
 
 interface SuperHeroesTeamPropsType {
   badTeamArray: Array<Hero | null>;
   goodTeamArray: Array<Hero | null>;
   goodTeamPowerstats: Powerstats;
   badTeamPowerstats: Powerstats;
+  badTeamBodyConstitution: BodyConstitution;
+  goodTeamBodyConstitution: BodyConstitution;
 }
 
 export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
@@ -17,6 +21,8 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
   goodTeamArray,
   goodTeamPowerstats,
   badTeamPowerstats,
+  badTeamBodyConstitution,
+  goodTeamBodyConstitution,
 }) => {
   return (
     <View>
@@ -40,6 +46,9 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
           </View>
           <View style={{alignItems: 'center'}}>
             <PowerstatsCard powerstats={goodTeamPowerstats} />
+            <SuperHeroesTeamBodyConstitutionCard
+              bodyConstitution={goodTeamBodyConstitution}
+            />
           </View>
         </View>
         <View style={{flex: 1}}>
@@ -61,6 +70,9 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
           </View>
           <View style={{alignItems: 'center'}}>
             <PowerstatsCard powerstats={badTeamPowerstats} />
+            <SuperHeroesTeamBodyConstitutionCard
+              bodyConstitution={badTeamBodyConstitution}
+            />
           </View>
         </View>
       </View>

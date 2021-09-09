@@ -1,7 +1,5 @@
 import {Powerstats} from '../../../types';
-export const calculateTeamPowerstatsAverage = (
-  PowerstatsArray: Powerstats[],
-) => {
+export const calculatePowerstatsAverage = (PowerstatsArray: Powerstats[]) => {
   const newTeamPowerstats: Powerstats = {
     combat: 0,
     durability: 0,
