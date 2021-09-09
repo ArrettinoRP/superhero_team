@@ -64,7 +64,7 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       const newGoodTeamPowerstats = calculateTeamPowerstatsAverage(
         goodTeamPowerstatsArray,
       );
-      setBadTeamPowerstats(newGoodTeamPowerstats);
+      setGoodTeamPowerstats(newGoodTeamPowerstats);
     };
 
     useEffect(() => {
@@ -72,6 +72,7 @@ export const SuperHeroesTeamContainer: React.FC<SuperHeroesContainerPropsTypes> 
       createBadTeamArray(superHeroesTeams.badTeam);
       calculateBadTeamPowerstatsAverage();
       calculateGoodTeamPowerstatsAverage();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [superHeroesTeams]);
 
     return (
