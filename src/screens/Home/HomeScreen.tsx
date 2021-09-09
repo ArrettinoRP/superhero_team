@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {SuperHeroesTeamStore} from '../../types';
 import {SuperHeroesTeamContainer} from '../../components/SuperHeroesTeam/SuperHeroesTeamContainer';
 
