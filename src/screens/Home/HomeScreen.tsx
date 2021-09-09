@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {SuperHeroesTeamStore} from '../../types';
-import {SuperHeroesTeam} from '../../components/SuperHeroesTeam/SuperHeroesTeam';
+import {SuperHeroesTeamContainer} from '../../components/SuperHeroesTeam/SuperHeroesTeamContainer';
 
 interface HomeScreenPropsTypes {
   superHeroesTeams: SuperHeroesTeamStore;
@@ -12,8 +12,10 @@ export const HomeScreen: React.FC<HomeScreenPropsTypes> = ({
 }) => {
   return (
     <View>
-      <SuperHeroesTeam superHeroesTeams={superHeroesTeams} />
-      <Text>Home</Text>
+      <ScrollView>
+        <SuperHeroesTeamContainer superHeroesTeams={superHeroesTeams} />
+        <Text>Home</Text>
+      </ScrollView>
     </View>
   );
 };

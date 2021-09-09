@@ -1,33 +1,46 @@
 import React from 'react';
 import {View} from 'react-native';
 import {SuperHeroesTeamCard} from './SuperHeroesTeamCard/SuperHeroesTeamCard';
-import {SuperHeroesTeamStore} from '../../types';
+import {AddSuperHeroesTeamCard} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCard';
+import {Hero} from '../../types';
 
 interface SuperHeroesTeamPropsType {
-  superHeroesTeams: SuperHeroesTeamStore;
+  badTeamArray: Array<Hero | null>;
+  goodTeamArray: Array<Hero | null>;
 }
 
 export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
-  superHeroesTeams,
+  badTeamArray,
+  goodTeamArray,
 }) => {
   return (
     <View>
-      {superHeroesTeams.goodTeam.map((item, index) => (
-        <SuperHeroesTeamCard
-          name={item.name}
-          index={index}
-          alignment={item.biography.alignment}
-          imageUrl={item.images.md}
-        />
-      ))}
-      {superHeroesTeams.badTeam.map((item, index) => (
-        <SuperHeroesTeamCard
-          name={item.name}
-          index={index}
-          alignment={item.biography.alignment}
-          imageUrl={item.images.md}
-        />
-      ))}
+      {goodTeamArray.map((item, index) => {
+        if (!item) {
+          return <AddSuperHeroesTeamCard />;
+        }
+        return (
+          <SuperHeroesTeamCard
+            name={item.name}
+            index={index}
+            alignment={item.biography.alignment}
+            imageUrl={item.images.md}
+          />
+        );
+      })}
+      {badTeamArray.map((item, index) => {
+        if (!item) {
+          return <AddSuperHeroesTeamCard />;
+        }
+        return (
+          <SuperHeroesTeamCard
+            name={item.name}
+            index={index}
+            alignment={item.biography.alignment}
+            imageUrl={item.images.md}
+          />
+        );
+      })}
     </View>
   );
 };
