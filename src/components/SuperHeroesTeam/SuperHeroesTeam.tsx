@@ -15,34 +15,40 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
 }) => {
   return (
     <View>
-      {goodTeamArray.map((item, index) => {
-        if (!item) {
-          return <AddSuperHeroesTeamCardContainer />;
-        }
-        return (
-          <SuperHeroesTeamCardContainer
-            name={item.name}
-            index={index}
-            alignment={item.biography.alignment}
-            imageUrl={item.images.md}
-            id={item.id}
-          />
-        );
-      })}
-      {badTeamArray.map((item, index) => {
-        if (!item) {
-          return <AddSuperHeroesTeamCardContainer />;
-        }
-        return (
-          <SuperHeroesTeamCardContainer
-            name={item.name}
-            index={index}
-            alignment={item.biography.alignment}
-            imageUrl={item.images.md}
-            id={item.id}
-          />
-        );
-      })}
+      <View style={{flexDirection: 'row'}}>
+        <View style={{flex: 1, alignItems: 'center', backgroundColor: 'blue'}}>
+          {goodTeamArray.map((item, index) => {
+            if (!item) {
+              return <AddSuperHeroesTeamCardContainer />;
+            }
+            return (
+              <SuperHeroesTeamCardContainer
+                name={item.name}
+                index={index}
+                alignment={item.biography.alignment}
+                imageUrl={item.images.md}
+                id={item.id}
+              />
+            );
+          })}
+        </View>
+        <View style={{flex: 1, alignItems: 'center', backgroundColor: 'red'}}>
+          {badTeamArray.map((item, index) => {
+            if (!item) {
+              return <AddSuperHeroesTeamCardContainer />;
+            }
+            return (
+              <SuperHeroesTeamCardContainer
+                name={item.name}
+                index={index}
+                alignment={item.biography.alignment}
+                imageUrl={item.images.md}
+                id={item.id}
+              />
+            );
+          })}
+        </View>
+      </View>
     </View>
   );
 };
