@@ -9,8 +9,10 @@ interface SuperHeroesTeamBodyConstitutionCardPropsTypes {
 export const SuperHeroesTeamBodyConstitutionCard: React.FC<SuperHeroesTeamBodyConstitutionCardPropsTypes> =
   ({bodyConstitution}) => {
     return (
-      <View>
-        <Text>Average body constitution of the team</Text>
+      <View style={{marginTop: 20}}>
+        <Text style={{fontWeight: 'bold', fontSize: 16}}>
+          Average body constitution of the team
+        </Text>
         <Text>Height: {`${bodyConstitution.height}  cm`}</Text>
         <Text>Weight: {`${bodyConstitution.weight}  Kg`}</Text>
       </View>

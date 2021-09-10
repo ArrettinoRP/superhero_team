@@ -1,8 +1,9 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 interface superHeroesTeamStyles {
   superHeroesTeamContainer: ViewStyle;
   teamContainer: ViewStyle;
+  title: TextStyle;
   goodTeamSuperHeroesCardContainer: ViewStyle;
   badTeamSuperHeroesCardContainer: ViewStyle;
   teamInformationContainer: ViewStyle;
@@ -10,23 +11,30 @@ interface superHeroesTeamStyles {
 
 export const superHeroesTeamStyles = StyleSheet.create<superHeroesTeamStyles>({
   superHeroesTeamContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   teamContainer: {
     flex: 1,
     flexDirection: 'column',
   },
+  title: {
+    alignSelf: 'center',
+    fontSize: 18,
+    marginTop: 10,
+  },
   goodTeamSuperHeroesCardContainer: {
     paddingTop: 30,
-    backgroundColor: 'blue',
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
   badTeamSuperHeroesCardContainer: {
     paddingTop: 30,
-    backgroundColor: 'red',
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
   teamInformationContainer: {
-    alignItems: 'center',
+    flexDirection: 'row',
   },
 });
