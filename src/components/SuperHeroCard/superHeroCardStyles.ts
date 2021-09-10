@@ -14,8 +14,8 @@ export const superHeroCardStyles = StyleSheet.create<SuperHeroCardStylesTypes>({
     alignItems: 'center',
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     borderRadius: 360,
   },
   name: {

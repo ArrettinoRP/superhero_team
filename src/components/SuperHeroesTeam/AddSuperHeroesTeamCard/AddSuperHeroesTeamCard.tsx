@@ -15,7 +15,7 @@ export const AddSuperHeroesTeamCard: React.FC<AddSuperHeroesTeamCardPropsTypes> 
             image={
               'https://stol.guru/wp-content/uploads/2019/01/shgDPtdsbtA.jpg'
             }
-            name={'Add new SuperHero'}
+            name={'Add SuperHero'}
           />
         </Pressable>
       </View>
