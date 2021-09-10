@@ -1,1 +1,2 @@
-export const EDIT_LOGGED_IN = 'EDIT_LOGGED_IN';
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';

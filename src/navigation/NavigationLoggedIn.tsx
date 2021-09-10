@@ -6,7 +6,8 @@ import {ListContainer} from '../screens/List';
 import {SuperHeroContainer} from '../screens/SuperHero';
 import {HomeContainer} from '../screens/Home';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faHome, faList} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faList, faCog} from '@fortawesome/free-solid-svg-icons';
+import {SettingsContainer} from '../screens/Settings/SettingsContainer';
 
 export type LoggedInScreensParamsTypes = {
   Menu: NavigatorScreenParams<MenuParamsTypes>;
@@ -16,6 +17,7 @@ export type LoggedInScreensParamsTypes = {
 export type MenuParamsTypes = {
   Home: undefined;
   List: undefined;
+  Settings: undefined;
 };
 
 export type LoggedInScreensProps = NavigationProp<LoggedInScreensParamsTypes>;
@@ -59,6 +61,15 @@ const Menu: React.FC = () => {
         options={{
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon size={size} color={color} icon={faList} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsContainer}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <FontAwesomeIcon size={size} color={color} icon={faCog} />
           ),
         }}
       />

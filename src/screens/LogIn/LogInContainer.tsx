@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {LogInScreen} from './LogInScreen';
-import {EDIT_LOGGED_IN} from '../../redux/actions/authActionsTypes';
+import {LOG_IN} from '../../redux/actions/authActionsTypes';
 import {useNavigation} from '@react-navigation/core';
 import {LoggedOutScreensProps} from '../../navigation';
 import {LogInFormTypes} from './LogInScreen';
@@ -16,7 +16,7 @@ export const LogInContainer: React.FC = () => {
       .signInWithEmailAndPassword(values.email, values.password)
       .then(() => {
         console.log('User account signed in!');
-        dispatch({type: EDIT_LOGGED_IN, payload: true});
+        dispatch({type: LOG_IN});
       })
       .catch(error => {
         console.log(error);
