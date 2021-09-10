@@ -14,10 +14,10 @@ import {
   LoggedOutScreensParamsTypes,
   NavigationLoggedOut,
 } from './NavigationLoggedOut';
-import {SplashContianer} from '../screens/Splash/SplashContainer';
+import {useSelector} from 'react-redux';
+import {Store} from '../types';
 
 export type MainScreensParamsTypes = {
-  Splash: undefined;
   LoggedOut: NavigatorScreenParams<LoggedOutScreensParamsTypes>;
   LoggedIn: NavigatorScreenParams<LoggedInScreensParamsTypes>;
 };
@@ -27,15 +27,18 @@ export type MainScreensProps = NavigationProp<MainScreensParamsTypes>;
 const Stack = createNativeStackNavigator<MainScreensParamsTypes>();
 
 export const Navigation: React.FC = () => {
+  const loggedIn = useSelector((state: Store) => state.auth.loggedIn);
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Splash" component={SplashContianer} />
-        <Stack.Screen name="LoggedOut" component={NavigationLoggedOut} />
-        <Stack.Screen name="LoggedIn" component={NavigationLoggedIn} />
+        {loggedIn ? (
+          <Stack.Screen name="LoggedIn" component={NavigationLoggedIn} />
+        ) : (
+          <Stack.Screen name="LoggedOut" component={NavigationLoggedOut} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

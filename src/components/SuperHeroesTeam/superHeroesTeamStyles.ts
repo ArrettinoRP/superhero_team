@@ -36,5 +36,6 @@ export const superHeroesTeamStyles = StyleSheet.create<superHeroesTeamStyles>({
   },
   teamInformationContainer: {
     flexDirection: 'row',
+    paddingLeft: 20,
   },
 });

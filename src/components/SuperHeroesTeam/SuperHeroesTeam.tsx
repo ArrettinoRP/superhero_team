@@ -48,10 +48,14 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
           <SuperHeroesCardsList teamArray={badTeamArray} />
         </View>
         <View style={superHeroesTeamStyles.teamInformationContainer}>
-          <PowerstatsCard powerstats={badTeamPowerstats} />
-          <SuperHeroesTeamBodyConstitutionCard
-            bodyConstitution={badTeamBodyConstitution}
-          />
+          <View style={{flex: 1}}>
+            <PowerstatsCard powerstats={badTeamPowerstats} />
+          </View>
+          <View style={{flex: 1}}>
+            <SuperHeroesTeamBodyConstitutionCard
+              bodyConstitution={badTeamBodyConstitution}
+            />
+          </View>
         </View>
       </View>
     </View>
