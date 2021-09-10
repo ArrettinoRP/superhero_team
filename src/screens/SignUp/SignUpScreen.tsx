@@ -1,12 +1,19 @@
 import React from 'react';
 import {Button, TextInput, View, Text, Pressable} from 'react-native';
 import {Formik} from 'formik';
+import * as yup from 'yup';
 import {signUpStyles} from './signUpStyles';
+import {FormikError} from '../../components/FormikError/FormikError';
 
 interface SignUpScreenPropsTypes {
   onPressLogIn: () => void;
   onPressSignUp: (values: SignUpFormTypes) => void;
 }
+
+const SingUpSchema = yup.object().shape({
+  email: yup.string().email('Invalid email').required('Email is required'),
+  password: yup.string().required('Password is required'),
+});
 
 export interface SignUpFormTypes {
   email: string;
@@ -22,8 +29,16 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
       <View style={signUpStyles.formContainer}>
         <Formik
           initialValues={{email: '', password: ''}}
+          validationSchema={SingUpSchema}
           onSubmit={values => onPressSignUp(values)}>
-          {({handleChange, handleBlur, handleSubmit, values}) => (
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+          }) => (
             <View style={signUpStyles.form}>
               <TextInput
                 onChangeText={handleChange('email')}
@@ -32,6 +47,9 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
                 placeholder={'Email'}
                 style={signUpStyles.textInput}
               />
+              {errors.email && touched.email ? (
+                <FormikError errorMessage={errors.email} />
+              ) : null}
               <TextInput
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
@@ -40,6 +58,9 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
                 secureTextEntry={true}
                 style={signUpStyles.textInput}
               />
+              {errors.password && touched.password ? (
+                <FormikError errorMessage={errors.password} />
+              ) : null}
               <View style={signUpStyles.signUpButton}>
                 <Button onPress={handleSubmit} title="Sign Up" />
               </View>

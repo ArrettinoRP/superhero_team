@@ -32,7 +32,7 @@ export const logInStyles = StyleSheet.create<logInStylesTypes>({
     borderWidth: 1.5,
     borderColor: '#a2a2a2',
     borderRadius: 10,
-    marginBottom: 10,
+    marginTop: 10,
     paddingTop: 9,
     paddingBottom: 7,
     paddingLeft: 8,
