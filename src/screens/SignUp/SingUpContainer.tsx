@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {SignUpScreen} from './SignUpScreen';
 import {LoggedOutScreensProps} from '../../navigation';
 import {SignUpFormTypes} from './SignUpScreen';
+import {invalidLogIn} from '../../Errors/ErrorsMessages';
 import auth from '@react-native-firebase/auth';
+import {ErrorMessage} from '../../components/ErrorModal/ErrorModal';
+import {ErrorScreen} from '../Error';
 
 export const SingUpContainer: React.FC = () => {
   const navigation = useNavigation<LoggedOutScreensProps>();
+  const [isErrorModalVisible, setIsErrorModalVisible] =
+    useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<ErrorMessage>({
+    title: '',
+    description: '',
+    closeText: '',
+  });
+  const [error, setError] = useState<boolean>(false);
 
   const onPressLogIn = () => {
     navigation.navigate('LogIn');
@@ -18,20 +29,33 @@ export const SingUpContainer: React.FC = () => {
       .then(() => {
         console.log('User account created & signed in!');
       })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
-
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
+      .catch(err => {
+        if (err.code === 'auth/email-already-in-use') {
+          setErrorMessage(invalidLogIn);
+          setIsErrorModalVisible(true);
+        } else if (err.code === 'auth/invalid-email') {
+          setErrorMessage(invalidLogIn);
+          setIsErrorModalVisible(true);
+        } else {
+          setError(true);
         }
 
         console.error(error);
       });
   };
 
+  const onPressErrorModalCloseButton = () => setIsErrorModalVisible(false);
+  if (error) {
+    <ErrorScreen />;
+  }
+
   return (
-    <SignUpScreen onPressLogIn={onPressLogIn} onPressSignUp={onPressSignUp} />
+    <SignUpScreen
+      errorMessage={errorMessage}
+      onPressErrorModalCloseButton={onPressErrorModalCloseButton}
+      isErrorModalVisible={isErrorModalVisible}
+      onPressLogIn={onPressLogIn}
+      onPressSignUp={onPressSignUp}
+    />
   );
 };

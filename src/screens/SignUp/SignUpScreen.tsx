@@ -4,10 +4,14 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {signUpStyles} from './signUpStyles';
 import {FormikError} from '../../components/FormikError/FormikError';
+import {ErrorModal, ErrorMessage} from '../../components/ErrorModal/ErrorModal';
 
 interface SignUpScreenPropsTypes {
   onPressLogIn: () => void;
   onPressSignUp: (values: SignUpFormTypes) => void;
+  onPressErrorModalCloseButton: () => void;
+  isErrorModalVisible: boolean;
+  errorMessage: ErrorMessage;
 }
 
 const SingUpSchema = yup.object().shape({
@@ -23,9 +27,17 @@ export interface SignUpFormTypes {
 export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
   onPressLogIn,
   onPressSignUp,
+  onPressErrorModalCloseButton,
+  errorMessage,
+  isErrorModalVisible,
 }) => {
   return (
     <View style={signUpStyles.signUpContianer}>
+      <ErrorModal
+        onPressCloseButton={onPressErrorModalCloseButton}
+        errorMessage={errorMessage}
+        isVisible={isErrorModalVisible}
+      />
       <View style={signUpStyles.formContainer}>
         <Formik
           initialValues={{email: '', password: ''}}
