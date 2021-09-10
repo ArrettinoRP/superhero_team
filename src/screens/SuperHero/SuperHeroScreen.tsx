@@ -29,23 +29,34 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
   return (
     <View>
       <ScrollView>
-        <View key="1" style={{flexDirection: 'row'}}>
-          <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
-            <SuperHeroCard name={superHero.name} image={superHero.images.md} />
+        <View>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
+              <SuperHeroCard
+                name={superHero.name}
+                image={superHero.images.md}
+              />
+            </View>
+            <View style={{flex: 1}}>
+              <BasicInformationCard
+                race={superHero.appearance.race}
+                gender={superHero.appearance.gender}
+                work={superHero.work}
+              />
+            </View>
           </View>
-          <View style={{flex: 1}}>
-            <BasicInformationCard
-              race={superHero.appearance.race}
-              gender={superHero.appearance.gender}
-              work={superHero.work}
-            />
-            <BiographyCard biography={superHero.biography} />
-            <AppearanceCard appearance={appearance} />
-            <PowerstatsCard powerstats={superHero.powerstats} />
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flex: 1}}>
+              <BiographyCard biography={superHero.biography} />
+            </View>
+            <View style={{flex: 1}}>
+              <AppearanceCard appearance={appearance} />
+              <PowerstatsCard powerstats={superHero.powerstats} />
+            </View>
           </View>
         </View>
       </ScrollView>
-      <View style={{position: 'absolute', bottom: '5%', right: '5%'}}>
+      <View style={{position: 'absolute', bottom: 0, right: '5%'}}>
         <AddButtonContainer superHero={superHero} />
       </View>
     </View>

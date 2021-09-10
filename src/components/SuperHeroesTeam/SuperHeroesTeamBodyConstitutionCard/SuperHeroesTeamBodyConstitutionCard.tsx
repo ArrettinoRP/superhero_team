@@ -13,8 +13,12 @@ export const SuperHeroesTeamBodyConstitutionCard: React.FC<SuperHeroesTeamBodyCo
         <Text style={{fontWeight: 'bold', fontSize: 16}}>
           Average body constitution of the team
         </Text>
-        <Text>Height: {`${bodyConstitution.height}  cm`}</Text>
-        <Text>Weight: {`${bodyConstitution.weight}  Kg`}</Text>
+        <Text style={{fontWeight: 'bold'}}>
+          Height: {`${bodyConstitution.height}  cm`}
+        </Text>
+        <Text style={{fontWeight: 'bold'}}>
+          Weight: {`${bodyConstitution.weight}  Kg`}
+        </Text>
       </View>
     );
   };

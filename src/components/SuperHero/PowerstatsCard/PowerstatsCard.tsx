@@ -17,56 +17,50 @@ export const PowerstatsCard: React.FC<PowerstatsCardPropsTypes> = ({
           fontSize: 17,
           fontWeight: 'bold',
         }}>
-        PowerStats
+        PowerStats:
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Combat
+        Combat: {powerstats.combat}
       </Text>
-      <Text>{powerstats.combat}</Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Durability
+        Durability: {powerstats.durability}
       </Text>
-      <Text>{powerstats.durability}</Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Intelligence
+        Intelligence: {powerstats.intelligence}
       </Text>
-      <Text>{powerstats.intelligence}</Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Power
+        Power: {powerstats.power}
       </Text>
-      <Text>{powerstats.power}</Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Speed
+        Speed: {powerstats.speed}
       </Text>
-      <Text>{powerstats.speed}</Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Strength
+        Strength: {powerstats.strength}
       </Text>
-      <Text>{powerstats.strength}</Text>
     </View>
   );
 };

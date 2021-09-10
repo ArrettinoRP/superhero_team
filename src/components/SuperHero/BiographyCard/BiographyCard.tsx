@@ -10,7 +10,7 @@ export const BiographyCard: React.FC<BiographyCardPropsTypes> = ({
   biography,
 }) => {
   return (
-    <View>
+    <View style={{paddingHorizontal: 20}}>
       <Text
         style={{
           marginTop: 20,
@@ -27,8 +27,8 @@ export const BiographyCard: React.FC<BiographyCardPropsTypes> = ({
         Aliases
       </Text>
       <Text>
-        {biography.aliases.map(alias => (
-          <Text>{alias}</Text>
+        {biography.aliases.map((alias, index) => (
+          <Text key={index}>{alias}</Text>
         ))}
       </Text>
       <Text
