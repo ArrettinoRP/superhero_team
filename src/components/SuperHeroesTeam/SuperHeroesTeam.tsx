@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Hero, Powerstats} from '../../types';
-import {SuperHeroesTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroesTeamCardContainer';
-import {AddSuperHeroesTeamCardContainer} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCardContainer';
 import {PowerstatsCard} from '../SuperHero';
 import {BodyConstitution} from './SuperHeroesTeamContainer';
 import {SuperHeroesTeamBodyConstitutionCard} from './SuperHeroesTeamBodyConstitutionCard/SuperHeroesTeamBodyConstitutionCard';
+import {superHeroesTeamStyles} from './superHeroesTeamStyles';
+import {SuperHeroesCardsList} from './SuperHeroesCardsList/SuperHeroesCardsList';
 
 interface SuperHeroesTeamPropsType {
   badTeamArray: Array<Hero | null>;
@@ -25,55 +25,27 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
   goodTeamBodyConstitution,
 }) => {
   return (
-    <View>
-      <View style={{flexDirection: 'row'}}>
-        <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'blue', alignItems: 'center'}}>
-            {goodTeamArray.map((item, index) => {
-              if (!item) {
-                return <AddSuperHeroesTeamCardContainer />;
-              }
-              return (
-                <SuperHeroesTeamCardContainer
-                  name={item.name}
-                  index={index}
-                  alignment={item.biography.alignment}
-                  imageUrl={item.images.md}
-                  id={item.id}
-                />
-              );
-            })}
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <PowerstatsCard powerstats={goodTeamPowerstats} />
-            <SuperHeroesTeamBodyConstitutionCard
-              bodyConstitution={goodTeamBodyConstitution}
-            />
-          </View>
+    <View style={superHeroesTeamStyles.superHeroesTeamContainer}>
+      <View style={superHeroesTeamStyles.teamContainer}>
+        <View style={superHeroesTeamStyles.goodTeamSuperHeroesCardContainer}>
+          <SuperHeroesCardsList teamArray={goodTeamArray} />
         </View>
-        <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'red', alignItems: 'center'}}>
-            {badTeamArray.map((item, index) => {
-              if (!item) {
-                return <AddSuperHeroesTeamCardContainer />;
-              }
-              return (
-                <SuperHeroesTeamCardContainer
-                  name={item.name}
-                  index={index}
-                  alignment={item.biography.alignment}
-                  imageUrl={item.images.md}
-                  id={item.id}
-                />
-              );
-            })}
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <PowerstatsCard powerstats={badTeamPowerstats} />
-            <SuperHeroesTeamBodyConstitutionCard
-              bodyConstitution={badTeamBodyConstitution}
-            />
-          </View>
+        <View style={superHeroesTeamStyles.teamInformationContainer}>
+          <PowerstatsCard powerstats={goodTeamPowerstats} />
+          <SuperHeroesTeamBodyConstitutionCard
+            bodyConstitution={goodTeamBodyConstitution}
+          />
+        </View>
+      </View>
+      <View style={superHeroesTeamStyles.teamContainer}>
+        <View style={superHeroesTeamStyles.badTeamSuperHeroesCardContainer}>
+          <SuperHeroesCardsList teamArray={badTeamArray} />
+        </View>
+        <View style={superHeroesTeamStyles.teamInformationContainer}>
+          <PowerstatsCard powerstats={badTeamPowerstats} />
+          <SuperHeroesTeamBodyConstitutionCard
+            bodyConstitution={badTeamBodyConstitution}
+          />
         </View>
       </View>
     </View>

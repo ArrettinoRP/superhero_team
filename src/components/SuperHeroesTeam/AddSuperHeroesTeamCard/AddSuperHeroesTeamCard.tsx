@@ -13,7 +13,7 @@ export const AddSuperHeroesTeamCard: React.FC<AddSuperHeroesTeamCardPropsTypes> 
         <Pressable onPress={onPress}>
           <SuperHeroCard
             image={
-              'https://s3.amazonaws.com/libapps/accounts/42353/images/superheroes.png'
+              'https://stol.guru/wp-content/uploads/2019/01/shgDPtdsbtA.jpg'
             }
             name={'Add new SuperHero'}
           />

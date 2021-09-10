@@ -28,7 +28,7 @@ export const SuperHeroesTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
             height: 30,
             position: 'absolute',
             alignSelf: 'flex-end',
-            paddingRight: 10,
+            marginRight: 10,
             marginTop: 10,
           }}>
           <RemoveButtonContainer alignment={alignment} index={index} />

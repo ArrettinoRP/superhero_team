@@ -10,13 +10,13 @@ export const superHeroCardImageMargin = 5;
 
 export const superHeroCardStyles = StyleSheet.create<SuperHeroCardStylesTypes>({
   cardContainer: {
-    backgroundColor: 'grey',
     margin: superHeroCardImageMargin,
     alignItems: 'center',
   },
   image: {
-    width: superHeroCardImageWidth,
-    height: 240,
+    width: 150,
+    height: 150,
+    borderRadius: 360,
   },
   name: {
     marginTop: 4,
@@ -24,6 +24,6 @@ export const superHeroCardStyles = StyleSheet.create<SuperHeroCardStylesTypes>({
     fontFamily: 'Roboto',
     marginBottom: 5,
     alignSelf: 'center',
-    maxWidth: superHeroCardImageWidth,
+    maxWidth: 240,
   },
 });

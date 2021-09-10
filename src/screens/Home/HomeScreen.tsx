@@ -13,7 +13,7 @@ export const HomeScreen: React.FC<HomeScreenPropsTypes> = ({
   return (
     <View>
       <ScrollView>
-        <SuperHeroesTeamContainer superHeroesTeams={superHeroesTeams} />
+        <SuperHeroesTeamContainer key={1} superHeroesTeams={superHeroesTeams} />
       </ScrollView>
     </View>
   );
