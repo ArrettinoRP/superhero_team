@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {ToastAndroid} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import {SignUpScreen} from './SignUpScreen';
 import {LoggedOutScreensProps} from '../../navigation';
@@ -27,6 +28,7 @@ export const SingUpContainer: React.FC = () => {
     auth()
       .createUserWithEmailAndPassword(values.email, values.password)
       .then(() => {
+        showToastWithGravity();
         console.log('User account created & signed in!');
       })
       .catch(err => {
@@ -44,6 +46,13 @@ export const SingUpContainer: React.FC = () => {
       });
   };
 
+  const showToastWithGravity = () => {
+    ToastAndroid.showWithGravity(
+      'User account created',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    );
+  };
   const onPressErrorModalCloseButton = () => setIsErrorModalVisible(false);
   if (error) {
     <ErrorScreen />;
