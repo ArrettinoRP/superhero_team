@@ -4,7 +4,7 @@ import {NavigatorScreenParams, NavigationProp} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ListContainer} from '../screens/List';
 import {SuperHeroContainer} from '../screens/SuperHero';
-import {HomeContainer} from '../screens/Home';
+import {HomeScreen} from '../screens/Home/HomeScreen';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHome, faList, faCog} from '@fortawesome/free-solid-svg-icons';
 import {SettingsContainer} from '../screens/Settings/SettingsContainer';
@@ -50,7 +50,7 @@ const Menu: React.FC = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeContainer}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon size={size} color={color} icon={faHome} />
