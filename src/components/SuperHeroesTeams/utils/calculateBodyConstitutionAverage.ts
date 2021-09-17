@@ -1,4 +1,4 @@
-import {BodyConstitution} from '../SuperHeroesTeamContainer';
+import {BodyConstitution} from '../SuperHeroesTeamsContainer';
 
 export const calculateBodyConstitutionAverage = (
   bodyConstitutionArray: BodyConstitution[],
@@ -7,8 +7,8 @@ export const calculateBodyConstitutionAverage = (
   const arrayLength = bodyConstitutionArray.length;
   if (arrayLength !== 0) {
     for (let key in bodyConstitutionArray) {
-      newBodyConstitution.height = bodyConstitutionArray[key].height;
-      newBodyConstitution.weight = bodyConstitutionArray[key].weight;
+      newBodyConstitution.height += bodyConstitutionArray[key].height;
+      newBodyConstitution.weight += bodyConstitutionArray[key].weight;
     }
     newBodyConstitution.height = Math.trunc(
       newBodyConstitution.height / arrayLength,
