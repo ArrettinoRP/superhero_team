@@ -8,6 +8,7 @@ import {HomeContainer} from '../screens/Home';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHome, faList, faCog} from '@fortawesome/free-solid-svg-icons';
 import {SettingsContainer} from '../screens/Settings/SettingsContainer';
+import {useTranslation} from 'react-i18next';
 
 export type LoggedInScreensParamsTypes = {
   Menu: NavigatorScreenParams<MenuParamsTypes>;
@@ -41,6 +42,7 @@ export const NavigationLoggedIn: React.FC = () => {
 };
 
 const Menu: React.FC = () => {
+  const {t} = useTranslation();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -53,6 +55,7 @@ const Menu: React.FC = () => {
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon size={size} color={color} icon={faHome} />
           ),
+          tabBarLabel: 'Home',
         }}
       />
       <Tab.Screen
@@ -62,6 +65,7 @@ const Menu: React.FC = () => {
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon size={size} color={color} icon={faList} />
           ),
+          tabBarLabel: t('List'),
         }}
       />
       <Tab.Screen
@@ -71,6 +75,7 @@ const Menu: React.FC = () => {
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon size={size} color={color} icon={faCog} />
           ),
+          tabBarLabel: t('Settings'),
         }}
       />
     </Tab.Navigator>

@@ -6,6 +6,7 @@ import {BodyConstitution} from './SuperHeroesTeamContainer';
 import {SuperHeroesTeamBodyConstitutionCard} from './SuperHeroesTeamBodyConstitutionCard/SuperHeroesTeamBodyConstitutionCard';
 import {superHeroesTeamStyles} from './superHeroesTeamStyles';
 import {SuperHeroesCardsList} from './SuperHeroesCardsList/SuperHeroesCardsList';
+import {useTranslation} from 'react-i18next';
 
 interface SuperHeroesTeamPropsType {
   badTeamArray: Array<Hero | null>;
@@ -24,10 +25,11 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
   badTeamBodyConstitution,
   goodTeamBodyConstitution,
 }) => {
+  const {t} = useTranslation();
   return (
     <View style={superHeroesTeamStyles.superHeroesTeamContainer}>
       <View style={superHeroesTeamStyles.teamContainer}>
-        <Text style={superHeroesTeamStyles.title}>Good Team</Text>
+        <Text style={superHeroesTeamStyles.title}>{t('Good Team')}</Text>
         <View style={superHeroesTeamStyles.goodTeamSuperHeroesCardContainer}>
           <SuperHeroesCardsList teamArray={goodTeamArray} />
         </View>
@@ -43,7 +45,7 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
         </View>
       </View>
       <View style={superHeroesTeamStyles.teamContainer}>
-        <Text style={superHeroesTeamStyles.title}>Bad Team</Text>
+        <Text style={superHeroesTeamStyles.title}>{t('Bad Team')}</Text>
         <View style={superHeroesTeamStyles.badTeamSuperHeroesCardContainer}>
           <SuperHeroesCardsList teamArray={badTeamArray} />
         </View>

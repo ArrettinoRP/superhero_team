@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
 import {BodyConstitution} from '../SuperHeroesTeamContainer';
 
@@ -8,16 +9,17 @@ interface SuperHeroesTeamBodyConstitutionCardPropsTypes {
 
 export const SuperHeroesTeamBodyConstitutionCard: React.FC<SuperHeroesTeamBodyConstitutionCardPropsTypes> =
   ({bodyConstitution}) => {
+    const {t} = useTranslation();
     return (
       <View style={{marginTop: 20}}>
         <Text style={{fontWeight: 'bold', fontSize: 16}}>
-          Average body constitution of the team
+          {t('Average body constitution of the team')}
         </Text>
         <Text style={{fontWeight: 'bold'}}>
-          Height: {`${bodyConstitution.height}  cm`}
+          {`${t('Height')}:`} {`${bodyConstitution.height}  cm`}
         </Text>
         <Text style={{fontWeight: 'bold'}}>
-          Weight: {`${bodyConstitution.weight}  Kg`}
+          {`${t('Weight')}:`} {`${bodyConstitution.weight}  Kg`}
         </Text>
       </View>
     );

@@ -1,4 +1,4 @@
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, ViewStyle, PixelRatio} from 'react-native';
 
 interface superHeroesTeamStyles {
   superHeroesTeamContainer: ViewStyle;
@@ -29,7 +29,7 @@ export const superHeroesTeamStyles = StyleSheet.create<superHeroesTeamStyles>({
     flexDirection: 'row',
   },
   badTeamSuperHeroesCardContainer: {
-    paddingTop: 30,
+    paddingTop: PixelRatio.getPixelSizeForLayoutSize(30),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

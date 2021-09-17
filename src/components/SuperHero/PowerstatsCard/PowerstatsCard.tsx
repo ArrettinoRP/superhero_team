@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
 import {Powerstats} from '../../../types';
 
@@ -9,6 +10,7 @@ interface PowerstatsCardPropsTypes {
 export const PowerstatsCard: React.FC<PowerstatsCardPropsTypes> = ({
   powerstats,
 }) => {
+  const {t} = useTranslation();
   return (
     <View>
       <Text
@@ -17,49 +19,49 @@ export const PowerstatsCard: React.FC<PowerstatsCardPropsTypes> = ({
           fontSize: 17,
           fontWeight: 'bold',
         }}>
-        PowerStats:
+        {`${t('PowerStats')}:`}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Combat: {powerstats.combat}
+        {`${t('Combat')}:`} {powerstats.combat}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Durability: {powerstats.durability}
+        {`${t('Durability')}:`} {powerstats.durability}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Intelligence: {powerstats.intelligence}
+        {`${t('Intelligence')}:`} {powerstats.intelligence}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Power: {powerstats.power}
+        {`${t('Power')}:`} {powerstats.power}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Speed: {powerstats.speed}
+        {`${t('Speed')}:`} {powerstats.speed}
       </Text>
       <Text
         style={{
           fontSize: 15,
           fontWeight: 'bold',
         }}>
-        Strength: {powerstats.strength}
+        {`${t('Strength')}:`} {powerstats.strength}
       </Text>
     </View>
   );
