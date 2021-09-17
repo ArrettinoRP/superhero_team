@@ -7,134 +7,101 @@ import {
 } from './utils';
 import {removeUnits} from './utils';
 import {Hero, Powerstats, Store} from '../../types';
+import {LoadingScreen} from '../../screens/Loading';
 
 export interface BodyConstitution {
   weight: number;
   height: number;
 }
 
+interface SuperHeroesTeam {
+  superHeroesArray: Array<Hero | null>;
+  powerstats: Powerstats;
+  bodyConstitutionAverage: BodyConstitution;
+}
+
+export interface SuperHeroesTeamsObjectInterface {
+  goodTeam: SuperHeroesTeam;
+  badTeam: SuperHeroesTeam;
+}
+
 export const SuperHeroesTeamsContainer: React.FC = () => {
-  const superHeroesTeams = useSelector((store: Store) => store.superHeroesTeam);
-  const [goodTeamArray, setGoodTeamArray] = useState<Array<Hero | null>>([]);
-  const [badTeamArray, setBadTeamArray] = useState<Array<Hero | null>>([]);
-  const [goodTeamPowerstats, setGoodTeamPowerstats] = useState<Powerstats>({
-    combat: 0,
-    durability: 0,
-    intelligence: 0,
-    power: 0,
-    speed: 0,
-    strength: 0,
-  });
+  const superHeroesTeamsStore = useSelector(
+    (store: Store) => store.superHeroesTeam,
+  );
+  const [superHeroesTeamsObject, setSuperHeroesTeamsObject] = useState<
+    SuperHeroesTeamsObjectInterface | undefined
+  >();
 
-  const [badTeamPowerstats, setBadTeamPowerstats] = useState<Powerstats>({
-    combat: 0,
-    durability: 0,
-    intelligence: 0,
-    power: 0,
-    speed: 0,
-    strength: 0,
-  });
-
-  const [badTeamBodyConstitution, setBadTeamBodyConstitution] =
-    useState<BodyConstitution>({weight: 0, height: 0});
-  const [goodTeamBodyConstitution, setGoodTeamBodyConstitution] =
-    useState<BodyConstitution>({weight: 0, height: 0});
-
-  const createGoodTeamArray = (goodTeam: Hero[]) => {
-    let newGoodTeamArray: Array<Hero | null> = [];
-    newGoodTeamArray.push.apply(newGoodTeamArray, goodTeam);
-    for (let i = newGoodTeamArray.length; i < 3; i++) {
-      newGoodTeamArray.push(null);
+  const createTeamArray = (teamArray: Hero[]) => {
+    let newTeamArray: Array<Hero | null> = [];
+    newTeamArray.push.apply(newTeamArray, teamArray);
+    for (let i = newTeamArray.length; i < 3; i++) {
+      newTeamArray.push(null);
     }
-    setGoodTeamArray(newGoodTeamArray);
-  };
-  const createBadTeamArray = (badTeam: Hero[]) => {
-    let newBadTeamArray: Array<Hero | null> = [];
-    newBadTeamArray.push.apply(newBadTeamArray, badTeam);
-    for (let i = newBadTeamArray.length; i < 3; i++) {
-      newBadTeamArray.push(null);
-    }
-    setBadTeamArray(newBadTeamArray);
+    return newTeamArray;
   };
 
-  const calculateBadTeamPowerstatsAverage = () => {
-    const badTeamPowerstatsArray = [];
-    for (let key in superHeroesTeams.badTeam) {
-      badTeamPowerstatsArray.push(superHeroesTeams.badTeam[key].powerstats);
+  const calculateTeamPowerstatsAverage = (teamArray: Hero[]) => {
+    const teamPowerstatsArray = [];
+    for (let key in teamArray) {
+      teamPowerstatsArray.push(teamArray[key].powerstats);
     }
-    const newBadTeamPowerstats = calculatePowerstatsAverage(
-      badTeamPowerstatsArray,
-    );
-    setBadTeamPowerstats(newBadTeamPowerstats);
+    const teamPowerstatsAverage =
+      calculatePowerstatsAverage(teamPowerstatsArray);
+    return teamPowerstatsAverage;
   };
 
-  const calculateGoodTeamPowerstatsAverage = () => {
-    const goodTeamPowerstatsArray = [];
-    for (let key in superHeroesTeams.goodTeam) {
-      goodTeamPowerstatsArray.push(superHeroesTeams.goodTeam[key].powerstats);
-    }
-    const newGoodTeamPowerstats = calculatePowerstatsAverage(
-      goodTeamPowerstatsArray,
-    );
-    setGoodTeamPowerstats(newGoodTeamPowerstats);
-  };
-
-  const calculateGoodTeamBodyConstitutionAverage = () => {
-    const goodTeamBodyConstitutionArray: BodyConstitution[] = [];
-    for (let key in superHeroesTeams.goodTeam) {
-      goodTeamBodyConstitutionArray.push({
-        weight: Number(
-          removeUnits(superHeroesTeams.goodTeam[key].appearance.weight[1]),
-        ),
-        height: Number(
-          removeUnits(superHeroesTeams.goodTeam[key].appearance.height[1]),
-        ),
+  const calculateTeamBodyConstitutionAverage = (teamArray: Hero[]) => {
+    const teamBodyConstitutionArray: BodyConstitution[] = [];
+    for (let key in teamArray) {
+      teamBodyConstitutionArray.push({
+        weight: Number(removeUnits(teamArray[key].appearance.weight[1])),
+        height: Number(removeUnits(teamArray[key].appearance.height[1])),
       });
     }
-    const newGoodTeamBodyConstitution = calculateBodyConstitutionAverage(
-      goodTeamBodyConstitutionArray,
+    const teamBodyConstitution = calculateBodyConstitutionAverage(
+      teamBodyConstitutionArray,
     );
 
-    setGoodTeamBodyConstitution(newGoodTeamBodyConstitution);
+    return teamBodyConstitution;
   };
 
-  const calculateBadTeamBodyConstitutionAverage = () => {
-    const badTeamBodyConstitutionArray: BodyConstitution[] = [];
-
-    for (let key in superHeroesTeams.badTeam) {
-      badTeamBodyConstitutionArray.push({
-        weight: Number(
-          removeUnits(superHeroesTeams.badTeam[key].appearance.weight[1]),
-        ),
-        height: Number(
-          removeUnits(superHeroesTeams.badTeam[key].appearance.height[1]),
-        ),
-      });
-    }
-    const newBadTeamBodyConstitution = calculateBodyConstitutionAverage(
-      badTeamBodyConstitutionArray,
+  const initTeams = () => {
+    const goodTeamArray = createTeamArray(superHeroesTeamsStore.goodTeam);
+    const badTeamArray = createTeamArray(superHeroesTeamsStore.badTeam);
+    const goodTeamPowerstatsAverage = calculateTeamPowerstatsAverage(
+      superHeroesTeamsStore.goodTeam,
     );
-    setBadTeamBodyConstitution(newBadTeamBodyConstitution);
+    const badTeamPowerstatsAverage = calculateTeamPowerstatsAverage(
+      superHeroesTeamsStore.badTeam,
+    );
+    const goodTeamBodyConstitutionAverage =
+      calculateTeamBodyConstitutionAverage(superHeroesTeamsStore.goodTeam);
+    const badTeamBodyConstitutionAverage = calculateTeamBodyConstitutionAverage(
+      superHeroesTeamsStore.badTeam,
+    );
+    setSuperHeroesTeamsObject({
+      goodTeam: {
+        superHeroesArray: goodTeamArray,
+        powerstats: goodTeamPowerstatsAverage,
+        bodyConstitutionAverage: goodTeamBodyConstitutionAverage,
+      },
+      badTeam: {
+        superHeroesArray: badTeamArray,
+        powerstats: badTeamPowerstatsAverage,
+        bodyConstitutionAverage: badTeamBodyConstitutionAverage,
+      },
+    });
   };
 
   useEffect(() => {
-    createGoodTeamArray(superHeroesTeams.goodTeam);
-    createBadTeamArray(superHeroesTeams.badTeam);
-    calculateBadTeamPowerstatsAverage();
-    calculateGoodTeamPowerstatsAverage();
-    calculateGoodTeamBodyConstitutionAverage();
-    calculateBadTeamBodyConstitutionAverage();
+    initTeams();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [superHeroesTeams]);
+  }, [superHeroesTeamsStore]);
 
-  return (
-    <SuperHeroesTeams
-      goodTeamArray={goodTeamArray}
-      badTeamArray={badTeamArray}
-      goodTeamPowerstats={goodTeamPowerstats}
-      badTeamPowerstats={badTeamPowerstats}
-      badTeamBodyConstitution={badTeamBodyConstitution}
-      goodTeamBodyConstitution={goodTeamBodyConstitution}
-    />
-  );
+  if (!superHeroesTeamsObject) {
+    return <LoadingScreen />;
+  }
+  return <SuperHeroesTeams superHeroesTeamsObject={superHeroesTeamsObject} />;
 };
