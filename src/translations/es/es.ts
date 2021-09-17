@@ -17,5 +17,6 @@ export default {
     'Log Out': 'Cerrar sesión',
     Settings: 'Ajustes',
     List: 'Lista',
+    SuperHero: 'Superhéroe',
   },
 };

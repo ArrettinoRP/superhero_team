@@ -27,6 +27,7 @@ const Stack = createNativeStackNavigator<LoggedInScreensParamsTypes>();
 const Tab = createBottomTabNavigator<MenuParamsTypes>();
 
 export const NavigationLoggedIn: React.FC = () => {
+  const {t} = useTranslation();
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -36,7 +37,11 @@ export const NavigationLoggedIn: React.FC = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="SuperHero" component={SuperHeroContainer} />
+      <Stack.Screen
+        name="SuperHero"
+        component={SuperHeroContainer}
+        options={{title: t('SuperHero')}}
+      />
     </Stack.Navigator>
   );
 };
