@@ -27,10 +27,11 @@ export const SuperHeroesTeams: React.FC<SuperHeroesTeamsPropsType> = ({
               <SuperHeroesCardsList teamArray={team.superHeroesArray} />
             </View>
             <View style={superHeroesTeamsStyles.teamInformationContainer}>
-              <View style={{flex: 1}}>
+              <View style={superHeroesTeamsStyles.powerstatsCardContainer}>
                 <PowerstatsCard powerstats={team.powerstats} />
               </View>
-              <View style={{flex: 1}}>
+              <View
+                style={superHeroesTeamsStyles.bodyConstitutionCardContainer}>
                 <SuperHeroesTeamBodyConstitutionCard
                   bodyConstitution={team.bodyConstitutionAverage}
                 />

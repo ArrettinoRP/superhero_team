@@ -7,6 +7,8 @@ interface superHeroesTeamsStyles {
   goodTeamSuperHeroesCardContainer: ViewStyle;
   badTeamSuperHeroesCardContainer: ViewStyle;
   teamInformationContainer: ViewStyle;
+  powerstatsCardContainer: ViewStyle;
+  bodyConstitutionCardContainer: ViewStyle;
 }
 
 export const superHeroesTeamsStyles = StyleSheet.create<superHeroesTeamsStyles>(
@@ -38,6 +40,12 @@ export const superHeroesTeamsStyles = StyleSheet.create<superHeroesTeamsStyles>(
     teamInformationContainer: {
       flexDirection: 'row',
       paddingLeft: 20,
+    },
+    powerstatsCardContainer: {
+      flex: 1,
+    },
+    bodyConstitutionCardContainer: {
+      flex: 1,
     },
   },
 );
