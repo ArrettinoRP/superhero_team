@@ -2,6 +2,7 @@ import React from 'react';
 import {Pressable, View} from 'react-native';
 import {RemoveButtonContainer} from '../../../RemoveButton/RemoveButtonContainer';
 import {SuperHeroCard} from '../../../SuperHeroCard/SuperHeroCard';
+import {superHeroTeamCardStyles} from './superHeroTeamCardStyles';
 
 interface SuperHeroesTeamCardPropsType {
   imageUrl?: string;
@@ -28,15 +29,7 @@ export const SuperHeroTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
           }
           name={name || 'Add SuperHero'}
         />
-        <View
-          style={{
-            width: 30,
-            height: 30,
-            position: 'absolute',
-            alignSelf: 'flex-end',
-            marginRight: 10,
-            marginTop: 10,
-          }}>
+        <View style={superHeroTeamCardStyles.removeButtonContainer}>
           {alignment && (
             <RemoveButtonContainer alignment={alignment} index={index} />
           )}
