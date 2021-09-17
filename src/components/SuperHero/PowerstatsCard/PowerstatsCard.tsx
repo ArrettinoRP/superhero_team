@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
 import {Powerstats} from '../../../types';
-import ProgressBar from '../../ProgresBar/ProgresBar';
+import {ProgressBar} from '../../ProgressBar/ProgressBar';
 import {powerstatsCardStyles} from './powerstatsCardStyles';
 
 interface PowerstatsCardPropsTypes {
