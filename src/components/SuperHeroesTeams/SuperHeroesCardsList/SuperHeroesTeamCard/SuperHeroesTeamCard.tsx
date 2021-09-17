@@ -4,9 +4,9 @@ import {RemoveButtonContainer} from '../../../RemoveButton/RemoveButtonContainer
 import {SuperHeroCard} from '../../../SuperHeroCard/SuperHeroCard';
 
 interface SuperHeroesTeamCardPropsType {
-  imageUrl: string;
-  name: string;
-  alignment: string;
+  imageUrl?: string;
+  name?: string;
+  alignment?: string;
   index: number;
   onPress: () => void;
 }
@@ -21,7 +21,13 @@ export const SuperHeroesTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
   return (
     <View>
       <Pressable onPress={onPress}>
-        <SuperHeroCard image={imageUrl} name={name} />
+        <SuperHeroCard
+          image={
+            imageUrl ||
+            'https://stol.guru/wp-content/uploads/2019/01/shgDPtdsbtA.jpg'
+          }
+          name={name || 'Add SuperHero'}
+        />
         <View
           style={{
             width: 30,
@@ -31,7 +37,9 @@ export const SuperHeroesTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
             marginRight: 10,
             marginTop: 10,
           }}>
-          <RemoveButtonContainer alignment={alignment} index={index} />
+          {alignment && (
+            <RemoveButtonContainer alignment={alignment} index={index} />
+          )}
         </View>
       </Pressable>
     </View>

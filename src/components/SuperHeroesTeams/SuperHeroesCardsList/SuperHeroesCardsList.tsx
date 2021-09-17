@@ -1,6 +1,5 @@
 import React from 'react';
 import {Hero} from '../../../types';
-import {AddSuperHeroesTeamCardContainer} from './AddSuperHeroesTeamCard/AddSuperHeroesTeamCardContainer';
 import {SuperHeroesTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroesTeamCardContainer';
 
 interface SuperHeroesCardsListPropsTypes {
@@ -12,20 +11,16 @@ export const SuperHeroesCardsList: React.FC<SuperHeroesCardsListPropsTypes> = ({
 }) => {
   return (
     <>
-      {teamArray.map((item, index) =>
-        !item ? (
-          <AddSuperHeroesTeamCardContainer key={index} />
-        ) : (
-          <SuperHeroesTeamCardContainer
-            key={index}
-            name={item.name}
-            index={index}
-            alignment={item.biography.alignment}
-            imageUrl={item.images.md}
-            id={item.id}
-          />
-        ),
-      )}
+      {teamArray.map((item, index) => (
+        <SuperHeroesTeamCardContainer
+          key={index}
+          name={item?.name}
+          index={index}
+          alignment={item?.biography.alignment}
+          imageUrl={item?.images.md}
+          id={item?.id}
+        />
+      ))}
     </>
   );
 };
