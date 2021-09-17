@@ -1,7 +1,7 @@
 import React from 'react';
 import {Pressable, View} from 'react-native';
-import {RemoveButtonContainer} from '../../RemoveButton/RemoveButtonContainer';
-import {SuperHeroCard} from '../../SuperHeroCard/SuperHeroCard';
+import {RemoveButtonContainer} from '../../../RemoveButton/RemoveButtonContainer';
+import {SuperHeroCard} from '../../../SuperHeroCard/SuperHeroCard';
 
 interface SuperHeroesTeamCardPropsType {
   imageUrl: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {View, Text} from 'react-native';
-import {BodyConstitution} from '../SuperHeroesTeamContainer';
+import {BodyConstitution} from '../SuperHeroesTeamsContainer';
 
 interface SuperHeroesTeamBodyConstitutionCardPropsTypes {
   bodyConstitution: BodyConstitution;

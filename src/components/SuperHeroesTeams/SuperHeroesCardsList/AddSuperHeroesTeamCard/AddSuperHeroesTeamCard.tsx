@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, View} from 'react-native';
-import {SuperHeroCard} from '../../SuperHeroCard/SuperHeroCard';
+import {SuperHeroCard} from '../../../SuperHeroCard/SuperHeroCard';
 
 interface AddSuperHeroesTeamCardPropsTypes {
   onPress: () => void;

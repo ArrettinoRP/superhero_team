@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {AddSuperHeroesTeamCard} from './AddSuperHeroesTeamCard';
-import {LoggedInScreensProps} from '../../../navigation';
+import {LoggedInScreensProps} from '../../../../navigation';
 
 export const AddSuperHeroesTeamCardContainer: React.FC = () => {
   const navigation = useNavigation<LoggedInScreensProps>();

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {SuperHeroesTeamCard} from './SuperHeroesTeamCard';
-import {LoggedInScreensProps} from '../../../navigation';
+import {LoggedInScreensProps} from '../../../../navigation';
 
 interface SuperHeroesTeamCardContianerPropsType {
   imageUrl: string;
