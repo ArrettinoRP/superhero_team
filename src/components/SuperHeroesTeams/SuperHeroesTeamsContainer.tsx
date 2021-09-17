@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-import {SuperHeroesTeam} from './SuperHeroesTeam';
+import {SuperHeroesTeams} from './SuperHeroesTeams';
 import {
   calculatePowerstatsAverage,
   calculateBodyConstitutionAverage,
@@ -13,7 +13,7 @@ export interface BodyConstitution {
   height: number;
 }
 
-export const SuperHeroesTeamContainer: React.FC = () => {
+export const SuperHeroesTeamsContainer: React.FC = () => {
   const superHeroesTeams = useSelector((store: Store) => store.superHeroesTeam);
   const [goodTeamArray, setGoodTeamArray] = useState<Array<Hero | null>>([]);
   const [badTeamArray, setBadTeamArray] = useState<Array<Hero | null>>([]);
@@ -128,7 +128,7 @@ export const SuperHeroesTeamContainer: React.FC = () => {
   }, [superHeroesTeams]);
 
   return (
-    <SuperHeroesTeam
+    <SuperHeroesTeams
       goodTeamArray={goodTeamArray}
       badTeamArray={badTeamArray}
       goodTeamPowerstats={goodTeamPowerstats}

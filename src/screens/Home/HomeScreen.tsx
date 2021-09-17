@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
-import {SuperHeroesTeamContainer} from '../../components/SuperHeroesTeam/SuperHeroesTeamContainer';
+import {SuperHeroesTeamsContainer} from '../../components/SuperHeroesTeams/SuperHeroesTeamsContainer';
 
 export const HomeScreen: React.FC = () => {
   return (
     <View>
       <ScrollView>
-        <SuperHeroesTeamContainer />
+        <SuperHeroesTeamsContainer />
       </ScrollView>
     </View>
   );

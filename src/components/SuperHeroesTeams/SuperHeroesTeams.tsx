@@ -2,13 +2,13 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {Hero, Powerstats} from '../../types';
 import {PowerstatsCard} from '../SuperHero';
-import {BodyConstitution} from './SuperHeroesTeamContainer';
+import {BodyConstitution} from './SuperHeroesTeamsContainer';
 import {SuperHeroesTeamBodyConstitutionCard} from './SuperHeroesTeamBodyConstitutionCard/SuperHeroesTeamBodyConstitutionCard';
-import {superHeroesTeamStyles} from './superHeroesTeamStyles';
+import {superHeroesTeamsStyles} from './superHeroesTeamsStyles';
 import {SuperHeroesCardsList} from './SuperHeroesCardsList/SuperHeroesCardsList';
 import {useTranslation} from 'react-i18next';
 
-interface SuperHeroesTeamPropsType {
+interface SuperHeroesTeamsPropsType {
   badTeamArray: Array<Hero | null>;
   goodTeamArray: Array<Hero | null>;
   goodTeamPowerstats: Powerstats;
@@ -17,7 +17,7 @@ interface SuperHeroesTeamPropsType {
   goodTeamBodyConstitution: BodyConstitution;
 }
 
-export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
+export const SuperHeroesTeams: React.FC<SuperHeroesTeamsPropsType> = ({
   badTeamArray,
   goodTeamArray,
   goodTeamPowerstats,
@@ -27,13 +27,13 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
 }) => {
   const {t} = useTranslation();
   return (
-    <View style={superHeroesTeamStyles.superHeroesTeamContainer}>
-      <View style={superHeroesTeamStyles.teamContainer}>
-        <Text style={superHeroesTeamStyles.title}>{t('Good Team')}</Text>
-        <View style={superHeroesTeamStyles.goodTeamSuperHeroesCardContainer}>
+    <View style={superHeroesTeamsStyles.superHeroesTeamContainer}>
+      <View style={superHeroesTeamsStyles.teamContainer}>
+        <Text style={superHeroesTeamsStyles.title}>{t('Good Team')}</Text>
+        <View style={superHeroesTeamsStyles.goodTeamSuperHeroesCardContainer}>
           <SuperHeroesCardsList teamArray={goodTeamArray} />
         </View>
-        <View style={superHeroesTeamStyles.teamInformationContainer}>
+        <View style={superHeroesTeamsStyles.teamInformationContainer}>
           <View style={{flex: 1}}>
             <PowerstatsCard powerstats={goodTeamPowerstats} />
           </View>
@@ -44,12 +44,12 @@ export const SuperHeroesTeam: React.FC<SuperHeroesTeamPropsType> = ({
           </View>
         </View>
       </View>
-      <View style={superHeroesTeamStyles.teamContainer}>
-        <Text style={superHeroesTeamStyles.title}>{t('Bad Team')}</Text>
-        <View style={superHeroesTeamStyles.badTeamSuperHeroesCardContainer}>
+      <View style={superHeroesTeamsStyles.teamContainer}>
+        <Text style={superHeroesTeamsStyles.title}>{t('Bad Team')}</Text>
+        <View style={superHeroesTeamsStyles.badTeamSuperHeroesCardContainer}>
           <SuperHeroesCardsList teamArray={badTeamArray} />
         </View>
-        <View style={superHeroesTeamStyles.teamInformationContainer}>
+        <View style={superHeroesTeamsStyles.teamInformationContainer}>
           <View style={{flex: 1}}>
             <PowerstatsCard powerstats={badTeamPowerstats} />
           </View>
