@@ -11,7 +11,7 @@ interface SuperHeroesTeamCardPropsType {
   onPress: () => void;
 }
 
-export const SuperHeroesTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
+export const SuperHeroTeamCard: React.FC<SuperHeroesTeamCardPropsType> = ({
   imageUrl,
   name,
   alignment,

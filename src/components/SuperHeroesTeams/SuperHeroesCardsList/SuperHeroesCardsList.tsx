@@ -1,6 +1,6 @@
 import React from 'react';
 import {Hero} from '../../../types';
-import {SuperHeroesTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroesTeamCardContainer';
+import {SuperHeroTeamCardContainer} from './SuperHeroesTeamCard/SuperHeroTeamCardContainer';
 
 interface SuperHeroesCardsListPropsTypes {
   teamArray: Array<Hero | null>;
@@ -12,7 +12,7 @@ export const SuperHeroesCardsList: React.FC<SuperHeroesCardsListPropsTypes> = ({
   return (
     <>
       {teamArray.map((item, index) => (
-        <SuperHeroesTeamCardContainer
+        <SuperHeroTeamCardContainer
           key={index}
           name={item?.name}
           index={index}

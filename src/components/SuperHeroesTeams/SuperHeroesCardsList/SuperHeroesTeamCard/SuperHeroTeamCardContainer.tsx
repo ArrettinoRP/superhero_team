@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/core';
-import {SuperHeroesTeamCard} from './SuperHeroesTeamCard';
+import {SuperHeroTeamCard} from './SuperHeroTeamCard';
 import {LoggedInScreensProps} from '../../../../navigation';
 
 interface SuperHeroesTeamCardContianerPropsType {
@@ -11,7 +11,7 @@ interface SuperHeroesTeamCardContianerPropsType {
   id?: number;
 }
 
-export const SuperHeroesTeamCardContainer: React.FC<SuperHeroesTeamCardContianerPropsType> =
+export const SuperHeroTeamCardContainer: React.FC<SuperHeroesTeamCardContianerPropsType> =
   ({imageUrl, name, alignment, index, id}) => {
     const navigation = useNavigation<LoggedInScreensProps>();
     const onPressHeroDetails = () =>
@@ -19,7 +19,7 @@ export const SuperHeroesTeamCardContainer: React.FC<SuperHeroesTeamCardContianer
     const onPressAddSuperHero = () =>
       navigation.navigate('Menu', {screen: 'List'});
     return (
-      <SuperHeroesTeamCard
+      <SuperHeroTeamCard
         imageUrl={imageUrl}
         name={name}
         alignment={alignment}
