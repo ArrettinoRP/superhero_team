@@ -8,13 +8,15 @@ import {
 import {removeUnits} from './utils';
 import {Hero, Powerstats, Store} from '../../types';
 import {LoadingScreen} from '../../screens/Loading';
+import {useTranslation} from 'react-i18next';
 
 export interface BodyConstitution {
   weight: number;
   height: number;
 }
 
-interface SuperHeroesTeam {
+export interface SuperHeroesTeam {
+  title: string;
   superHeroesArray: Array<Hero | null>;
   powerstats: Powerstats;
   bodyConstitutionAverage: BodyConstitution;
@@ -32,6 +34,7 @@ export const SuperHeroesTeamsContainer: React.FC = () => {
   const [superHeroesTeamsObject, setSuperHeroesTeamsObject] = useState<
     SuperHeroesTeamsObjectInterface | undefined
   >();
+  const {t} = useTranslation();
 
   const createTeamArray = (teamArray: Hero[]) => {
     let newTeamArray: Array<Hero | null> = [];
@@ -83,11 +86,13 @@ export const SuperHeroesTeamsContainer: React.FC = () => {
     );
     setSuperHeroesTeamsObject({
       goodTeam: {
+        title: t('Good Team'),
         superHeroesArray: goodTeamArray,
         powerstats: goodTeamPowerstatsAverage,
         bodyConstitutionAverage: goodTeamBodyConstitutionAverage,
       },
       badTeam: {
+        title: t('Bad Team'),
         superHeroesArray: badTeamArray,
         powerstats: badTeamPowerstatsAverage,
         bodyConstitutionAverage: badTeamBodyConstitutionAverage,
