@@ -5,7 +5,7 @@ import {
   SuperHeroesTeamsObjectInterface,
   SuperHeroesTeam,
 } from './SuperHeroesTeamsContainer';
-import {SuperHeroesTeamBodyConstitutionCard} from './SuperHeroesTeamBodyConstitutionCard/SuperHeroesTeamBodyConstitutionCard';
+import {BodyConstitutionCard} from './BodyConstitutionCard/BodyConstitutionCard';
 import {superHeroesTeamsStyles} from './superHeroesTeamsStyles';
 import {SuperHeroesCardsList} from './SuperHeroesCardsList/SuperHeroesCardsList';
 
@@ -32,7 +32,7 @@ export const SuperHeroesTeams: React.FC<SuperHeroesTeamsPropsType> = ({
               </View>
               <View
                 style={superHeroesTeamsStyles.bodyConstitutionCardContainer}>
-                <SuperHeroesTeamBodyConstitutionCard
+                <BodyConstitutionCard
                   bodyConstitution={team.bodyConstitutionAverage}
                 />
               </View>

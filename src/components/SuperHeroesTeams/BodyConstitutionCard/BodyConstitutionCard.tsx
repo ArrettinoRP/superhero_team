@@ -7,7 +7,7 @@ interface SuperHeroesTeamBodyConstitutionCardPropsTypes {
   bodyConstitution: BodyConstitution;
 }
 
-export const SuperHeroesTeamBodyConstitutionCard: React.FC<SuperHeroesTeamBodyConstitutionCardPropsTypes> =
+export const BodyConstitutionCard: React.FC<SuperHeroesTeamBodyConstitutionCardPropsTypes> =
   ({bodyConstitution}) => {
     const {t} = useTranslation();
     return (
