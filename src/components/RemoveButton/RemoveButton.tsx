@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Pressable} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import {removeButtonStyles} from './removeButtonStyles';
 
 interface RemoveButtonPorpsType {
   onPress: () => void;
@@ -9,17 +10,9 @@ interface RemoveButtonPorpsType {
 export const RemoveButton: React.FC<RemoveButtonPorpsType> = ({onPress}) => {
   return (
     <Pressable onPress={onPress}>
-      <View
-        style={{
-          backgroundColor: 'red',
-          width: '100%',
-          height: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: 360,
-        }}>
+      <View style={removeButtonStyles.removeButton}>
         <Svg
-          style={{width: '58%', height: '58%'}}
+          style={removeButtonStyles.icon}
           viewBox="0 0 348.333 348.334"
           fill="none">
           <Path
