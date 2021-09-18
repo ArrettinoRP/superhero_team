@@ -7,6 +7,7 @@ type superHeroListCardStylesTypes = {
   informationContainer: ViewStyle;
   name: TextStyle;
   actionButtonContainer: ViewStyle;
+  tagContainer: ViewStyle;
 };
 
 export const superHeroListCardWidth = 370;
@@ -49,6 +50,7 @@ export const superHeroListCardStyles =
       marginTop: 5.5,
       marginLeft: 5.5,
     },
+    tagContainer: {flexDirection: 'row', marginTop: 3},
     actionButtonContainer: {
       flex: 1,
       justifyContent: 'center',

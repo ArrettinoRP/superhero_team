@@ -25,7 +25,7 @@ export const SuperHeroListCard: React.FC<SuperHeroListCardPropsContainer> = ({
         </View>
         <View style={superHeroListCardStyles.informationContainer}>
           <Text style={superHeroListCardStyles.name}>{superHero.name}</Text>
-          <View style={{flexDirection: 'row', marginTop: 3}}>
+          <View style={superHeroListCardStyles.tagContainer}>
             <Tag text={superHero.biography.alignment} />
           </View>
         </View>
