@@ -1,11 +1,13 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 interface superHeroStylesTypes {
   imageContainer: ViewStyle;
   informationCard: ViewStyle;
+  informationCardRow: ViewStyle;
   informationCardRow1Container: ViewStyle;
   informationCardRow1: ViewStyle;
   informationCardRow2: ViewStyle;
+  title: TextStyle;
   basicInformationCardContainer: ViewStyle;
   appearanceCardContainer: ViewStyle;
   addButtonContainer: ViewStyle;
@@ -17,10 +19,17 @@ export const superHeroStyles = StyleSheet.create<superHeroStylesTypes>({
     justifyContent: 'center',
   },
   informationCard: {},
+  informationCardRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 20,
+  },
   informationCardRow1Container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   informationCardRow1: {
     width: '90%',

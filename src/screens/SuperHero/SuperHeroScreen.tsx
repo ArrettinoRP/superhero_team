@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, Text} from 'react-native';
 import {Hero} from '../../types';
 import {
   SuperHeroImageCard,
@@ -34,6 +34,9 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
             <SuperHeroImageCard uri={superHero.images.sm} />
           </View>
           <View style={superHeroStyles.informationCard}>
+            <View style={superHeroStyles.informationCardRow}>
+              <Text style={superHeroStyles.title}>{superHero.name}</Text>
+            </View>
             <View style={superHeroStyles.informationCardRow1Container}>
               <View style={superHeroStyles.informationCardRow1}>
                 <View style={superHeroStyles.basicInformationCardContainer}>
