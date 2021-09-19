@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
-import {SuperHeroCard} from '../../components/SuperHeroCard/SuperHeroCard';
 import {Hero} from '../../types';
 import {
+  SuperHeroImageCard,
   AppearanceCard,
   BasicInformationCard,
-  BiographyCard,
   PowerstatsCard,
 } from '../../components/SuperHero';
 import {AddButtonContainer} from '../../components/AddButton/AddButtonContainer';
+import {superHeroStyles} from './superHeroStyles';
 
 export interface SuperHeroAppearance {
   height: string[];
@@ -30,33 +30,31 @@ export const SuperHeroScreen: React.FC<SuperHeroScreenPropsTypes> = ({
     <View>
       <ScrollView>
         <View>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1, marginTop: 20, alignItems: 'center'}}>
-              <SuperHeroCard
-                name={superHero.name}
-                image={superHero.images.md}
-              />
-            </View>
-            <View style={{flex: 1}}>
-              <BasicInformationCard
-                race={superHero.appearance.race}
-                gender={superHero.appearance.gender}
-                work={superHero.work}
-              />
-            </View>
+          <View style={superHeroStyles.imageContainer}>
+            <SuperHeroImageCard uri={superHero.images.sm} />
           </View>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{flex: 1}}>
-              <BiographyCard biography={superHero.biography} />
+          <View style={superHeroStyles.informationCard}>
+            <View style={superHeroStyles.informationCardRow1Container}>
+              <View style={superHeroStyles.informationCardRow1}>
+                <View style={superHeroStyles.basicInformationCardContainer}>
+                  <BasicInformationCard
+                    race={superHero.appearance.race}
+                    gender={superHero.appearance.gender}
+                    aliases={superHero.biography.aliases}
+                  />
+                </View>
+                <View style={superHeroStyles.appearanceCardContainer}>
+                  <AppearanceCard appearance={appearance} />
+                </View>
+              </View>
             </View>
-            <View style={{flex: 1}}>
-              <AppearanceCard appearance={appearance} />
+            <View style={superHeroStyles.informationCardRow2}>
               <PowerstatsCard powerstats={superHero.powerstats} />
             </View>
           </View>
         </View>
       </ScrollView>
-      <View style={{position: 'absolute', bottom: 0, right: '5%'}}>
+      <View style={superHeroStyles.addButtonContainer}>
         <AddButtonContainer superHero={superHero} />
       </View>
     </View>

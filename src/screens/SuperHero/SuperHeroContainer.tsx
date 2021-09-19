@@ -1,12 +1,12 @@
 import React from 'react';
 import {SuperHeroScreen} from './SuperHeroScreen';
 import {useRoute, RouteProp} from '@react-navigation/native';
-import {StackScreensListTypes} from '../../navigation';
+import {LoggedInScreensParamsTypes} from '../../navigation';
 import {useSelector} from 'react-redux';
 import {Hero, Store} from '../../types';
 
 export const SuperHeroContainer: React.FC = () => {
-  const route = useRoute<RouteProp<StackScreensListTypes, 'SuperHero'>>();
+  const route = useRoute<RouteProp<LoggedInScreensParamsTypes, 'SuperHero'>>();
   const superHero: Hero = useSelector(
     (store: Store) =>
       store.superHeroes.list.filter(

@@ -14,7 +14,7 @@ export const PowerstatsCard: React.FC<PowerstatsCardPropsTypes> = ({
 }) => {
   const {t} = useTranslation();
   return (
-    <View>
+    <View style={powerstatsCardStyles.powerstatsCard}>
       <Text style={powerstatsCardStyles.title}>{`${t('PowerStats')}:`}</Text>
       <Text style={powerstatsCardStyles.text}>
         {`${t('Combat')}:`}

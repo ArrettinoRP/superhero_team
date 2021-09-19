@@ -1,18 +1,17 @@
 import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
-interface PowerstatsCardStylesTypes {
-  powerstatsCard: ViewStyle;
+interface AppearanceCardStylesTypes {
+  appearanceCard: ViewStyle;
   title: TextStyle;
   text: TextStyle;
 }
 
-export const powerstatsCardStyles =
-  StyleSheet.create<PowerstatsCardStylesTypes>({
-    powerstatsCard: {
+export const appearanceCardStyles =
+  StyleSheet.create<AppearanceCardStylesTypes>({
+    appearanceCard: {
       width: '90%',
     },
     title: {
-      marginTop: 20,
       fontSize: 17,
       fontWeight: 'bold',
     },

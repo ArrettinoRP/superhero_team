@@ -8,7 +8,7 @@ interface ProgressBarStyles {
 export const progressBarStyles = StyleSheet.create<ProgressBarStyles>({
   container: {
     height: 10,
-    width: '80%',
+    width: '100%',
     backgroundColor: '#e0e0de',
     borderRadius: 50,
   },

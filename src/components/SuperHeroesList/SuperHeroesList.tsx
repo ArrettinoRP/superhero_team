@@ -6,7 +6,6 @@ import {
   NativeSyntheticEvent,
 } from 'react-native';
 import {Hero} from '../../types';
-//rimport {SuperHeroCard} from '../SuperHeroCard/SuperHeroCard';
 import {SuperHeroListCardContainer} from '../SuperHeroesListCard/SuperHeroListCardContainer';
 import {TextInputBar} from '../TextInputBar/TextInputBar';
 import {HideOnScroll} from '../Animations';
