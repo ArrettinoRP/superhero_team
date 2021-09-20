@@ -29,7 +29,6 @@ export const SingUpContainer: React.FC = () => {
       .createUserWithEmailAndPassword(values.email, values.password)
       .then(() => {
         showToastWithGravity();
-        console.log('User account created & signed in!');
       })
       .catch(err => {
         if (err.code === 'auth/email-already-in-use') {
@@ -38,11 +37,12 @@ export const SingUpContainer: React.FC = () => {
         } else if (err.code === 'auth/invalid-email') {
           setErrorMessage(invalidLogIn);
           setIsErrorModalVisible(true);
+        } else if (err.code === 'auth/weak-password') {
+          setErrorMessage(invalidLogIn);
+          setIsErrorModalVisible(true);
         } else {
           setError(true);
         }
-
-        console.error(error);
       });
   };
 
