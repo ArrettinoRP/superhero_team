@@ -19,7 +19,7 @@ export const SingUpContainer: React.FC = () => {
     closeText: '',
   });
   const [error, setError] = useState<boolean>(false);
-  const {invalidLogIn} = useErrorsMessages();
+  const {emailAlreadyInUse} = useErrorsMessages();
 
   const onPressLogIn = () => {
     navigation.navigate('LogIn');
@@ -33,13 +33,7 @@ export const SingUpContainer: React.FC = () => {
       })
       .catch(err => {
         if (err.code === 'auth/email-already-in-use') {
-          setErrorMessage(invalidLogIn);
-          setIsErrorModalVisible(true);
-        } else if (err.code === 'auth/invalid-email') {
-          setErrorMessage(invalidLogIn);
-          setIsErrorModalVisible(true);
-        } else if (err.code === 'auth/weak-password') {
-          setErrorMessage(invalidLogIn);
+          setErrorMessage(emailAlreadyInUse);
           setIsErrorModalVisible(true);
         } else {
           setError(true);

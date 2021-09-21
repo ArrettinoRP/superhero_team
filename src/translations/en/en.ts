@@ -25,9 +25,14 @@ export default {
     "Don't have an account?": "Don't have an account?",
     'Sign Up': 'Sign Up',
     'Have an account already?': 'Have an account already?',
-    'Invalid username or password': 'Invalid username or password',
+    'Invalid email or password': 'Invalid email or password',
     'The password or email you entered is incorrect. Try another password or email.':
       'The password or email you entered is incorrect. Try another password or email.',
     'Try Again': 'Try Again',
+    'This email is used in another account':
+      'This email is used in another account',
+    'You can log in using this email or use another email to register.':
+      'You can log in using this email or use another email to register.',
+    Close: 'Close',
   },
 };
