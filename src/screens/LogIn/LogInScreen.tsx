@@ -1,10 +1,11 @@
 import React from 'react';
-import {Button, Pressable, Text, TextInput, View} from 'react-native';
+import {Button, Text, TextInput, View} from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {logInStyles} from './logInStyles';
 import {FormikError} from '../../components/FormikError/FormikError';
 import {ErrorModal, ErrorMessage} from '../../components/ErrorModal/ErrorModal';
+import {useTranslation} from 'react-i18next';
 
 interface LogInScreenPropsTypes {
   onPressLogIn: (values: LogInFormTypes) => void;
@@ -31,6 +32,7 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
   errorMessage,
   onPressErrorModalCloseButton,
 }) => {
+  const {t} = useTranslation();
   return (
     <View style={logInStyles.logInContianer}>
       <ErrorModal
@@ -56,7 +58,7 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
-                placeholder={'Email'}
+                placeholder={t('Email')}
                 style={logInStyles.textInput}
               />
               {errors.email && touched.email ? (
@@ -66,7 +68,7 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
-                placeholder={'Password'}
+                placeholder={t('Password')}
                 secureTextEntry={true}
                 style={logInStyles.textInput}
               />
@@ -74,7 +76,7 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
                 <FormikError errorMessage={errors.password} />
               ) : null}
               <View style={logInStyles.logInButton}>
-                <Button onPress={handleSubmit} title="Log In" />
+                <Button onPress={handleSubmit} title={t('Log In')} />
               </View>
             </View>
           )}
@@ -82,10 +84,13 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
       </View>
       <View style={logInStyles.signUpContrainer}>
         <View style={logInStyles.signUp}>
-          <Text style={logInStyles.signUpText}>Don't have an account? </Text>
-          <Pressable onPress={onPressSignUp}>
-            <Text style={logInStyles.signUpLink}> Sign Up</Text>
-          </Pressable>
+          <Text style={logInStyles.signUpText}>
+            {t("Don't have an account?")}
+            {'   '}
+            <Text onPress={onPressSignUp} style={logInStyles.signUpLink}>
+              {t('Sign Up')}
+            </Text>
+          </Text>
         </View>
       </View>
     </View>

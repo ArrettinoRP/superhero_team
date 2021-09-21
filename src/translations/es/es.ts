@@ -18,5 +18,12 @@ export default {
     Settings: 'Ajustes',
     List: 'Lista',
     SuperHero: 'Superhéroe',
+    Start: 'Empezar',
+    Email: 'Correo Electrónico',
+    Password: 'Contraseña',
+    'Log In': 'Iniciar sesión',
+    "Don't have an account?": '¿No tienes una cuenta?',
+    'Sign Up': 'Registrate',
+    'Have an account already?': '¿Ya tienes una cuenta? ',
   },
 };

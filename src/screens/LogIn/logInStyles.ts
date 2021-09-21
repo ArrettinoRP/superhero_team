@@ -52,7 +52,6 @@ export const logInStyles = StyleSheet.create<logInStylesTypes>({
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    flexDirection: 'row',
   },
   signUpText: {
     color: '#a2a2a2',

@@ -1,10 +1,11 @@
 import React from 'react';
-import {Button, TextInput, View, Text, Pressable} from 'react-native';
+import {Button, TextInput, View, Text} from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {signUpStyles} from './signUpStyles';
 import {FormikError} from '../../components/FormikError/FormikError';
 import {ErrorModal, ErrorMessage} from '../../components/ErrorModal/ErrorModal';
+import {useTranslation} from 'react-i18next';
 
 interface SignUpScreenPropsTypes {
   onPressLogIn: () => void;
@@ -34,6 +35,7 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
   errorMessage,
   isErrorModalVisible,
 }) => {
+  const {t} = useTranslation();
   return (
     <View style={signUpStyles.signUpContianer}>
       <ErrorModal
@@ -59,7 +61,7 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
-                placeholder={'Email'}
+                placeholder={t('Email')}
                 style={signUpStyles.textInput}
               />
               {errors.email && touched.email ? (
@@ -69,7 +71,7 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
-                placeholder={'Password'}
+                placeholder={t('Password')}
                 secureTextEntry={true}
                 style={signUpStyles.textInput}
               />
@@ -77,7 +79,7 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
                 <FormikError errorMessage={errors.password} />
               ) : null}
               <View style={signUpStyles.signUpButton}>
-                <Button onPress={handleSubmit} title="Sign Up" />
+                <Button onPress={handleSubmit} title={t('Sign Up')} />
               </View>
             </View>
           )}
@@ -85,10 +87,13 @@ export const SignUpScreen: React.FC<SignUpScreenPropsTypes> = ({
       </View>
       <View style={signUpStyles.logInContrainer}>
         <View style={signUpStyles.logIn}>
-          <Text style={signUpStyles.logInText}>Have an account? </Text>
-          <Pressable onPress={onPressLogIn}>
-            <Text style={signUpStyles.logInLink}> Log In</Text>
-          </Pressable>
+          <Text style={signUpStyles.logInText}>
+            {t('Have an account already?')}
+            {'   '}
+            <Text onPress={onPressLogIn} style={signUpStyles.logInLink}>
+              {t('Log In')}
+            </Text>
+          </Text>
         </View>
       </View>
     </View>
