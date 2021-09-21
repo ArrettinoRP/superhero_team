@@ -25,5 +25,9 @@ export default {
     "Don't have an account?": '¿No tienes una cuenta?',
     'Sign Up': 'Registrate',
     'Have an account already?': '¿Ya tienes una cuenta? ',
+    'Invalid username or password': 'Usuario o contraseña invalido',
+    'The password or email you entered is incorrect. Try another password or email.':
+      'La contraseña o el correo electrónico que ingresó es incorrecto. Pruebe con otra contraseña o correo electrónico.',
+    'Try Again': 'Intentar de nuevo',
   },
 };

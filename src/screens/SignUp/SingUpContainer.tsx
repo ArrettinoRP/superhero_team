@@ -4,21 +4,22 @@ import {useNavigation} from '@react-navigation/core';
 import {SignUpScreen} from './SignUpScreen';
 import {LoggedOutScreensProps} from '../../navigation';
 import {SignUpFormTypes} from './SignUpScreen';
-import {invalidLogIn} from '../../Errors/ErrorsMessages';
+import {useErrorsMessages} from '../../hooks/errors/useErrorsMessages';
 import auth from '@react-native-firebase/auth';
-import {ErrorMessage} from '../../components/ErrorModal/ErrorModal';
+import {ModalErrorMessage} from '../../components/ErrorModal/ErrorModal';
 import {ErrorScreen} from '../Error';
 
 export const SingUpContainer: React.FC = () => {
   const navigation = useNavigation<LoggedOutScreensProps>();
   const [isErrorModalVisible, setIsErrorModalVisible] =
     useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<ErrorMessage>({
+  const [errorMessage, setErrorMessage] = useState<ModalErrorMessage>({
     title: '',
     description: '',
     closeText: '',
   });
   const [error, setError] = useState<boolean>(false);
+  const {invalidLogIn} = useErrorsMessages();
 
   const onPressLogIn = () => {
     navigation.navigate('LogIn');

@@ -25,5 +25,9 @@ export default {
     "Don't have an account?": "Don't have an account?",
     'Sign Up': 'Sign Up',
     'Have an account already?': 'Have an account already?',
+    'Invalid username or password': 'Invalid username or password',
+    'The password or email you entered is incorrect. Try another password or email.':
+      'The password or email you entered is incorrect. Try another password or email.',
+    'Try Again': 'Try Again',
   },
 };

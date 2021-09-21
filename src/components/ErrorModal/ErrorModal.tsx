@@ -5,11 +5,11 @@ import {errorModalStyles} from './errorModalStyles';
 
 interface ErrorModalPropsTypes {
   onPressCloseButton: () => void;
-  errorMessage: ErrorMessage;
+  errorMessage: ModalErrorMessage;
   isVisible: boolean;
 }
 
-export interface ErrorMessage {
+export interface ModalErrorMessage {
   title: string;
   description: string;
   closeText: string;
