@@ -9,7 +9,6 @@ import {
   NavigationLoggedIn,
   LoggedInScreensParamsTypes,
 } from './NavigationLoggedIn';
-
 import {
   LoggedOutScreensParamsTypes,
   NavigationLoggedOut,

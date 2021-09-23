@@ -2,17 +2,21 @@ import React from 'react';
 import {Button, Text, TextInput, View} from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import {logInStyles} from './logInStyles';
+import {useLogInStyles} from './useLogInStyles';
 import {FormikError} from '../../components/FormikError/FormikError';
-import {ErrorModal, ErrorMessage} from '../../components/ErrorModal/ErrorModal';
+import {
+  ErrorModal,
+  ModalErrorMessage,
+} from '../../components/ErrorModal/ErrorModal';
 import {useTranslation} from 'react-i18next';
+import {useTheme} from '../../hooks/useTheme';
 
 interface LogInScreenPropsTypes {
   onPressLogIn: (values: LogInFormTypes) => void;
   onPressSignUp: () => void;
   onPressErrorModalCloseButton: () => void;
   isErrorModalVisible: boolean;
-  errorMessage: ErrorMessage;
+  errorMessage: ModalErrorMessage;
 }
 
 const LogInSchema = yup.object().shape({
@@ -33,14 +37,16 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
   onPressErrorModalCloseButton,
 }) => {
   const {t} = useTranslation();
+  const {styles} = useLogInStyles();
+  const {colors} = useTheme();
   return (
-    <View style={logInStyles.logInContianer}>
+    <View style={styles.logInContianer}>
       <ErrorModal
         onPressCloseButton={onPressErrorModalCloseButton}
         errorMessage={errorMessage}
         isVisible={isErrorModalVisible}
       />
-      <View style={logInStyles.formContainer}>
+      <View style={styles.formContainer}>
         <Formik
           initialValues={{email: '', password: ''}}
           validationSchema={LogInSchema}
@@ -53,13 +59,13 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
             errors,
             touched,
           }) => (
-            <View style={logInStyles.form}>
+            <View style={styles.form}>
               <TextInput
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
                 placeholder={t('Email')}
-                style={logInStyles.textInput}
+                style={styles.textInput}
               />
               {errors.email && touched.email ? (
                 <FormikError errorMessage={errors.email} />
@@ -68,26 +74,30 @@ export const LogInScreen: React.FC<LogInScreenPropsTypes> = ({
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
-                placeholder={t('Password')}
+                placeholder={'Password'}
                 secureTextEntry={true}
-                style={logInStyles.textInput}
+                style={styles.textInput}
               />
               {errors.password && touched.password ? (
                 <FormikError errorMessage={errors.password} />
               ) : null}
-              <View style={logInStyles.logInButton}>
-                <Button onPress={handleSubmit} title={t('Log In')} />
+              <View style={styles.logInButton}>
+                <Button
+                  color={colors.primary}
+                  onPress={handleSubmit}
+                  title={t('Log In')}
+                />
               </View>
             </View>
           )}
         </Formik>
       </View>
-      <View style={logInStyles.signUpContrainer}>
-        <View style={logInStyles.signUp}>
-          <Text style={logInStyles.signUpText}>
+      <View style={styles.signUpContrainer}>
+        <View style={styles.signUp}>
+          <Text style={styles.signUpText}>
             {t("Don't have an account?")}
             {'   '}
-            <Text onPress={onPressSignUp} style={logInStyles.signUpLink}>
+            <Text onPress={onPressSignUp} style={styles.signUpLink}>
               {t('Sign Up')}
             </Text>
           </Text>
